@@ -16,7 +16,8 @@
 ## Pause Sun May 26 19:38:13 PDT 2019
 ## Unpause Sun May 26 19:55:44 PDT 2019
 
+## Committed
+
+- Flash message errors formatted
 
 # Backlog
-
-- Flash message iterator formating 

@@ -1,6 +1,11 @@
 <h1>Sign Up</h1>
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<% if flash.has?(:messages) %>
+<ul>
+  <% flash[:messages].each do |message| %>
+    <li><%= message.first %> - <%= message.flatten.last %></li>
+  <% end %>
+</ul>
+
 <% end %>
 <form action="/signup" method="post">
   <label for="username">User Name</label>

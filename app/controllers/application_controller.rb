@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/buckets'
     else
-      flash[:message] = @user.errors.messages
+      flash[:messages] = @user.errors.messages
       redirect '/signup'
     end
   end
