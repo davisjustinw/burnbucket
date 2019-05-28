@@ -1,7 +1,7 @@
 # Stories
 As a user I can
-- Sign up with a unique login and password
-- Login with username and password.
+- Sign up with a unique login and password DONE
+- Login with username and password. DONE
 - CRUD budgets-with-names aka buckets
 - Set bucket totals
 - Set bucket time period

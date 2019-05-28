@@ -1,0 +1,18 @@
+<h1>New Bucket</h1>
+<% if flash.has?(:messages) %>
+<ul>
+  <% flash[:messages].each do |message| %>
+    <li><%= message.first %> - <%= message.flatten.last %></li>
+  <% end %>
+</ul>
+
+<% end %>
+<form action="/buckets" method="post">
+  <label for="bucket[name]">Name</label>
+  <input type="text" name="bucket[name]">
+
+  <label for="bucket[total]">Total</label>
+  <input type="text" name="bucket[total]">
+
+  <input type="submit" name="submit">
+</form>
