@@ -34,14 +34,20 @@
 
 - fixed slugifiable needing an explicit require to make bucket work
 
-- add bucket index, create, edit, show views and routes
-- protect bucket from non-users
-
-- working on new bucket post route
 
 ## Pause Mon May 27 09:41:16 PDT 2019
 ## Unpause Mon May 27 19:31:49 PDT 2019
 
+- add bucket index, create
+
+## Committed
+
+## Pause Mon May 27 19:59:52 PDT 2019
+## Unpause Wed May 29 20:32:56 PDT 2019
+
+
+- protect bucket from non-users
+- edit, show views and routes
 
 # Backlog
 

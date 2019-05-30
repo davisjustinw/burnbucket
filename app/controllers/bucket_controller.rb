@@ -31,4 +31,20 @@ class BucketController < ApplicationController
     end
   end
 
+  get '/buckets/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find(session[:user_id])
+      if @user.buckets.exists?(params[:id])
+        @bucket = Bucket.find(params[:id])
+        erb :'buckets/show_bucket'
+      else
+        flash[:message] = "You do not have permission to view this bucket or it does not exist"
+        redirect '/buckets'
+      end
+    else
+      redirect '/login'
+    end
+
+  end
+
 end
