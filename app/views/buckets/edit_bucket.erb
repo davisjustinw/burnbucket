@@ -1,1 +1,17 @@
 
+<h1>Edit Bucket</h1>
+<% if flash.has?(:message) %>
+  <%= flash[:message]%>
+<% end %>
+
+<form action="/buckets/<%= @bucket.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="bucket[name]">Name</label>
+  <input type="text" name="bucket[name]" value=<%= @bucket.name %>>
+
+  <label for="bucket[total]">Total</label>
+  <input type="text" name="bucket[total]" value=<%= @bucket.total %>>
+
+  <input type="submit" name="submit">
+</form>
