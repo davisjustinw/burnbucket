@@ -57,6 +57,7 @@
 - Add entry edit on edit bucket page
 - Add entry list to show bucket page
 - Add edit button to show bucket page
+
 - Add entry new to edit bucket page
 
 
