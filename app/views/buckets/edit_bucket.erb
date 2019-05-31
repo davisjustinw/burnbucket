@@ -13,5 +13,15 @@
   <label for="bucket[total]">Total</label>
   <input type="text" name="bucket[total]" value=<%= @bucket.total %>>
 
+  <h2>Entries</h2>
+
+  <% @entries.each do |entry| %>
+
+    <label for="entries[][name]">Name</label>
+    <input type="text" name="entries[][name]" value=<%= entry.name %>>
+    <input type="hidden" name="entries[][id]" value=<%= entry.id %>>
+
+  <% end %>
+
   <input type="submit" name="submit">
 </form>

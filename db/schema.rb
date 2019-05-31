@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190527033546) do
+ActiveRecord::Schema.define(version: 20190531030109) do
 
   create_table "buckets", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20190527033546) do
     t.datetime "end_time"
     t.integer  "total"
     t.integer  "user_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "amount"
+    t.integer  "bucket_id"
   end
 
   create_table "users", force: :cascade do |t|

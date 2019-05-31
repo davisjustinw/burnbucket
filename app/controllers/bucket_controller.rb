@@ -36,7 +36,7 @@ class BucketController < ApplicationController
       @user = User.find(session[:user_id])
       if @user.buckets.exists?(params[:id])
         @bucket = Bucket.find(params[:id])
-        binding.pry
+        @entries = @bucket.entries
         erb :'buckets/show_bucket'
       else
         flash[:message] = "You do not have permission to view this bucket or it does not exist"
@@ -52,6 +52,8 @@ class BucketController < ApplicationController
       @user = User.find(session[:user_id])
       if @user.buckets.exists?(params[:id])
         @bucket = Bucket.find(params[:id])
+
+        @entries = @bucket.entries
         erb :'buckets/edit_bucket'
       else
         flash[:message] = "You do not have permission to edit this bucket or it does not exist"
@@ -68,7 +70,10 @@ class BucketController < ApplicationController
         if @user.buckets.exists?(params[:id])
           @bucket = Bucket.find(params[:id])
           @bucket.update(params[:bucket])
-          binding.pry
+
+          params[:entries].each do |entry|
+            @bucket.entries.find(entry[:id]).update(entry)
+          end
           redirect "buckets/#{@bucket.id}"
         else
           flash[:message] = "You do not have permission to edit this bucket or it does not exist"
