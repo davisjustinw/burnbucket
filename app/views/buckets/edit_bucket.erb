@@ -9,7 +9,7 @@
 
   <label for="bucket[name]">Name</label>
   <input type="text" name="bucket[name]" value=<%= @bucket.name %>>
-
+  </br>
   <label for="bucket[total]">Total</label>
   <input type="text" name="bucket[total]" value=<%= @bucket.total %>>
 
@@ -19,9 +19,17 @@
 
     <label for="entries[][name]">Name</label>
     <input type="text" name="entries[][name]" value=<%= entry.name %>>
+    <label for="entries[][amount]">Amount</label>
+    <input type="text" name="entries[][amount]" value=<%= entry.amount %>>
     <input type="hidden" name="entries[][id]" value=<%= entry.id %>>
-
+    </br>
   <% end %>
 
+  <label for="new_entry[name]">Name</label>
+  <input type="text" name="new_entry[name]">
+
+  <label for="new_entry[amount]">Amount</label>
+  <input type="text" name="new_entry[amount]">
+  </br>
   <input type="submit" name="submit">
 </form>

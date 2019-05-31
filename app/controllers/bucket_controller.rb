@@ -71,9 +71,16 @@ class BucketController < ApplicationController
           @bucket = Bucket.find(params[:id])
           @bucket.update(params[:bucket])
 
+          #update entries
           params[:entries].each do |entry|
             @bucket.entries.find(entry[:id]).update(entry)
           end
+
+          #add new entry
+          if !params[:new_entry].empty?
+            @bucket.entries.create(params[:new_entry])
+          end
+
           redirect "buckets/#{@bucket.id}"
         else
           flash[:message] = "You do not have permission to edit this bucket or it does not exist"
