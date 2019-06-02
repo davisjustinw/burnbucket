@@ -61,11 +61,17 @@
 - Add amounts to entry lists on bucket edit and show
 
 ## Pause Thu May 30 21:23:18 PDT 2019
+## Unpause Sun Jun  2 10:28:45 PDT 2019
 
+## Pause Sun Jun  2 11:14:49 PDT 2019
+## Unpause  Sun Jun  2 13:47:19 PDT 2019
 
+- buckets breadcrumb partial
+- add "new" as placeholder in bucket/new for @bucket.name
 
 # Backlog
 
+- make logout link in layout login sensitive
 - investigate require_all vs explicit require in app/config/environment
 -- may be due alphabetical order?
 - validate date time input

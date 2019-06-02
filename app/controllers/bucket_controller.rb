@@ -12,9 +12,10 @@ class BucketController < ApplicationController
   end
 
   get '/buckets/new' do
+
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
-
+      @bucket = Bucket.new(name: "new")
       erb :'buckets/new_bucket'
     else
       redirect '/login'
