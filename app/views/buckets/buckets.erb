@@ -1,11 +1,8 @@
-<h2><%= @user.username %>'s buckets</h2>
+<h2><%= @user.username %>'s buckets | <a class="button" href="/buckets/new">+</a></h2>
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+  <p><%= flash[:message] %></p>
 <% end %>
 
   <% @buckets.each do |bucket| %>
-    <a href="buckets/<%= bucket.id %>"><%= bucket.name %></a></br>
+    <a href="buckets/<%= bucket.slug %>"><%= bucket.name %></a></br>
   <% end %>
-
-
-<a class="button" href="/buckets/new">New Bucket</a>

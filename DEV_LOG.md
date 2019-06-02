@@ -68,6 +68,7 @@
 
 - buckets breadcrumb partial
 - add "new" as placeholder in bucket/new for @bucket.name
+- slug bucket name
 
 # Backlog
 
