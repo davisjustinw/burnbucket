@@ -66,12 +66,25 @@
 ## Pause Sun Jun  2 11:14:49 PDT 2019
 ## Unpause  Sun Jun  2 13:47:19 PDT 2019
 
+
+## Pause Sun Jun  2 15:36:00 PDT 2019
+## Unpause Sun Jun  2 18:37:40 PDT 2019
+## Pause Sun Jun  2 20:39:13 PDT 2019
+## Unpause Mon Jun  3 20:35:41 PDT 2019
+## Pause Mon Jun  3 22:19:50 PDT 2019
+## Unpause Tue Jun  4 19:29:54 PDT 2019
+
 - buckets breadcrumb partial
 - add "new" as placeholder in bucket/new for @bucket.name
 - slug bucket name
+- slug user name (scrapped for now)
+- create concatenated url (scrapped for now)
+
+- unit
 
 # Backlog
 
+- protect against user called buckets
 - make logout link in layout login sensitive
 - investigate require_all vs explicit require in app/config/environment
 -- may be due alphabetical order?
@@ -80,3 +93,4 @@
 - clock in
 - github integration
 - setup short cut in Atom for <%  %>
+- nested routes parent routes are fairly automatic

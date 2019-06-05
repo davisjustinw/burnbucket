@@ -1,7 +1,9 @@
 
 class BucketController < ApplicationController
-  get '/buckets' do
 
+
+
+  get '/buckets' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
       @buckets = @user.buckets
@@ -41,7 +43,7 @@ class BucketController < ApplicationController
         @entries = @bucket.entries
         erb :'buckets/show_bucket'
       else
-        flash[:message] = "You don't have permission to view the bucket #{params[:slug]}, or it does't exist"
+        flash[:message] = "You don't have permission to view this bucket #{params[:slug]}, or it does't exist"
         redirect '/buckets'
       end
     else
@@ -49,12 +51,12 @@ class BucketController < ApplicationController
     end
   end
 
-  get '/buckets/:id/edit' do
+  get '/buckets/:slug/edit' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
-      if @user.buckets.exists?(params[:id])
-        @bucket = Bucket.find(params[:id])
+      @bucket = @user.buckets.find_by_slug params[:slug]
 
+      if @bucket
         @entries = @bucket.entries
         erb :'buckets/edit_bucket'
       else
