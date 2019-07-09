@@ -1,8 +1,51 @@
-<h2><%= @user.username %>'s buckets | <a class="button" href="/buckets/new">+</a></h2>
-<% if flash.has?(:message) %>
-  <p><%= flash[:message] %></p>
-<% end %>
+<header>
+  <h1><%= @user.username %>'s buckets | <a class="button" href="/buckets/new">+</a></h1>
+</header>
 
-  <% @buckets.each do |bucket| %>
-    <a href="buckets/<%= bucket.slug %>"><%= bucket.name %></a></br>
-  <% end %>
+
+  <div id="buckets">
+    <div class="psi">
+      <h1>PSI</h1>
+      <% @buckets.select {|bucket| bucket.potential}.each do |bucket| %>
+        <div class="bucket_card">
+          <h1><%= bucket.name %></h1>
+
+          <h2><%= bucket.potential %></h2>
+          <h3>dollars:hours</h3>
+          <h2>125:1</h2>
+          <a href="buckets/<%= bucket.slug %>">EDIT</a>
+        </div>
+      <% end %>
+      <a href="buckets/new?potential=on">
+      <div class="bucket_card">
+        <h1>+</h1>
+      </div>
+      </a>
+    </div>
+
+
+    <div class="psi-naught">
+
+      <h1>PSI_NAUGHT</h1>
+      <% @buckets.select {|bucket| !bucket.potential}.each do |bucket| %>
+        <div class="bucket_card">
+          <h1><%= bucket.name %></h1>
+
+          <h2><%= bucket.potential %></h2>
+          <h3>dollars:hours</h3>
+          <h2>125:1</h2>
+          <a href="buckets/<%= bucket.slug %>">EDIT</a>
+
+        </div>
+      <% end %>
+
+      <a href="buckets/new">
+      <div class="bucket_card">
+        <h1>+</h1>
+      </div>
+      </a>
+
+
+    </div>
+
+  </div>

@@ -11,11 +11,8 @@
 <% end %>
 
 <form action="/buckets" method="post">
-  <label for="bucket[name]">Name</label>
+  <label for="bucket[name]">name</label>
   <input type="text" name="bucket[name]">
-
-  <label for="bucket[total]">Total</label>
-  <input type="text" name="bucket[total]">
-
+  <input type="hidden" name="bucket[potential]" value="<%= @potential %>">
   <input type="submit" name="submit">
 </form>

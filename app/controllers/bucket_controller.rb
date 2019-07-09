@@ -1,22 +1,25 @@
 
 class BucketController < ApplicationController
 
-
-
   get '/buckets' do
-    if Helpers.is_logged_in?(session)
-      @user = User.find(session[:user_id])
-      @buckets = @user.buckets
-      erb :'buckets/buckets'
+    if Helpers.is_logged_in? session
+      if User.exists? session[:user_id]
+        @user = User.find session[:user_id]
+        @buckets = @user.buckets
+
+        erb :'buckets/buckets'
+      else
+        redirect '/logout'
+      end
     else
       redirect '/login'
     end
   end
 
   get '/buckets/new' do
-
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
+      @potential = params[:potential]
       @bucket = Bucket.new(name: "new")
       erb :'buckets/new_bucket'
     else
@@ -26,8 +29,10 @@ class BucketController < ApplicationController
 
   post '/buckets' do
     if Helpers.is_logged_in?(session)
+      binding.pry
       @user = User.find(session[:user_id])
       @user.buckets.create(params[:bucket])
+
       redirect '/buckets'
     else
       redirect '/login'
@@ -40,7 +45,7 @@ class BucketController < ApplicationController
       @bucket = @user.buckets.find_by_slug params[:slug]
 
       if @bucket
-        @entries = @bucket.entries
+        @moments = @bucket.moments
         erb :'buckets/show_bucket'
       else
         flash[:message] = "You don't have permission to view this bucket #{params[:slug]}, or it does't exist"
@@ -57,7 +62,7 @@ class BucketController < ApplicationController
       @bucket = @user.buckets.find_by_slug params[:slug]
 
       if @bucket
-        @entries = @bucket.entries
+        @moments = @bucket.moments
         erb :'buckets/edit_bucket'
       else
         flash[:message] = "You do not have permission to edit this bucket or it does not exist"
@@ -75,14 +80,14 @@ class BucketController < ApplicationController
           @bucket = Bucket.find(params[:id])
           @bucket.update(params[:bucket])
 
-          #update entries
-          params[:entries].each do |entry|
-            @bucket.entries.find(entry[:id]).update(entry)
+          #update moments
+          params[:moments].each do |moment|
+            @bucket.moments.find(moment[:id]).update(moment)
           end
 
-          #add new entry
-          if !params[:new_entry].empty?
-            @bucket.entries.create(params[:new_entry])
+          #add new moment
+          if !params[:new_moment].empty?
+            @bucket.moments.create(params[:new_moment])
           end
 
           redirect "buckets/#{@bucket.id}"

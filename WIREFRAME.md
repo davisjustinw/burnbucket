@@ -3,7 +3,7 @@ As a user I can
 - Sign up with a unique login and password DONE
 - Login with username and password. DONE
 - CRUD budgets-with-names aka buckets
-- Set bucket totals
+- Set bucket pools
 - Set bucket time period
 - CRUD units
 - CRUD line items aka entries
@@ -41,7 +41,7 @@ The parent model.  Represents one of many "budgets" a user can track.
 - name
 - start_time
 - end_time
-- total
+- pool 
 
 ### Associations
 has_many entries
@@ -50,7 +50,7 @@ belongs_to user
 ### Validations
 - end_time after start time
 - valid time
-- number for total
+- number for pool
 - name not empty
 - only owner can CUD
 
