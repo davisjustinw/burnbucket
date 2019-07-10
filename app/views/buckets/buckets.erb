@@ -3,8 +3,8 @@
 </header>
 
 
-  <div id="buckets">
-    <div class="psi">
+  <div id="buckets" >
+    <div class="psi bucket_column">
       <h1>PSI</h1>
       <% @buckets.select {|bucket| bucket.potential}.each do |bucket| %>
         <div class="bucket_card">
@@ -24,7 +24,7 @@
     </div>
 
 
-    <div class="psi-naught">
+    <div class="psi-naught bucket_column">
 
       <h1>PSI_NAUGHT</h1>
       <% @buckets.select {|bucket| !bucket.potential}.each do |bucket| %>

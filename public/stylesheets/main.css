@@ -31,8 +31,9 @@
   }
 
   #buckets {
+    
     display: flex;
-    width: 90vw;
+    width: 100%;
     justify-content: center;
   }
 
@@ -41,11 +42,17 @@
     color: red;
   }
 
+  .bucket_column {
+    background-color: black;
+    flex-basis: 30%;
+  }
+
 
   .bucket_card {
     background-color: lightgreen;
     padding: 1.5em;
     margin: 1em;
+
   }
 
   .bucket_card h2 {

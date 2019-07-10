@@ -90,15 +90,30 @@
 
 - unit
 
+## Jul 8
+- back up and running
+- took date time out of model.
+- added psi psi naught
+
+## Jul 9
+
+- add delete button to bucket cards
+- fix edit bucket link to route to edit buckets
+- fix bucket widths
+
+
 # Backlog
 
+- update add moment in edit bucket
+- add quick moment input in buckets route
+- add balanccing function
+- layout
+- ratio in junction bucket
+- non-amount moment balance
 - protect against user called buckets
 - make logout link in layout login sensitive
 - investigate require_all vs explicit require in app/config/environment
 -- may be due alphabetical order?
-- validate date time input
 - validate uniqueness of bucket name within user's buckets
 - clock in
 - github integration
-- setup short cut in Atom for <%  %>
-- nested routes parent routes are fairly automatic
