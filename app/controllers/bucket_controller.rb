@@ -100,4 +100,20 @@ class BucketController < ApplicationController
     end
   end
 
+  delete '/buckets/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find(session[:user_id])
+      if @user.buckets.exists?(params[:id])
+        @bucket = Bucket.find(params[:id])
+        @bucket.destroy
+        redirect '/buckets'
+      else
+        redirect '/buckets'
+      end
+    else
+      redirect '/login'
+    end
+
+  end
+
 end

@@ -16,6 +16,18 @@
     color: black;
   }
 
+  input[type=submit] {
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1rem;
+    background-color: lightgreen;
+    cursor: pointer;
+    text-align: center;
+  }
+
   /* --- Welcome Page Styles --- */
   body {
     background-color: lightblue;
@@ -46,7 +58,6 @@
     background-color: black;
     flex-basis: 30%;
   }
-
 
   .bucket_card {
     background-color: lightgreen;

@@ -5,4 +5,8 @@
   <h3>dollars:hours</h3>
   <h2>125:1</h2>
   <a href="buckets/<%= bucket.slug %>">EDIT</a>
+  <form method="post" action="/buckets/<%= bucket.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="DELETE">
+  </form>
 </div>
