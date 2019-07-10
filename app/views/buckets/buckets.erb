@@ -5,17 +5,12 @@
 
   <div id="buckets" >
     <div class="psi bucket_column">
+
       <h1>PSI</h1>
       <% @buckets.select {|bucket| bucket.potential}.each do |bucket| %>
-        <div class="bucket_card">
-          <h1><%= bucket.name %></h1>
-
-          <h2><%= bucket.potential %></h2>
-          <h3>dollars:hours</h3>
-          <h2>125:1</h2>
-          <a href="buckets/<%= bucket.slug %>">EDIT</a>
-        </div>
+        <%= erb :'partials/bucket_card', :layout => false, :locals => {:bucket => bucket} %>
       <% end %>
+      
       <a href="buckets/new?potential=on">
       <div class="bucket_card">
         <h1>+</h1>
@@ -27,16 +22,9 @@
     <div class="psi-naught bucket_column">
 
       <h1>PSI_NAUGHT</h1>
+
       <% @buckets.select {|bucket| !bucket.potential}.each do |bucket| %>
-        <div class="bucket_card">
-          <h1><%= bucket.name %></h1>
-
-          <h2><%= bucket.potential %></h2>
-          <h3>dollars:hours</h3>
-          <h2>125:1</h2>
-          <a href="buckets/<%= bucket.slug %>">EDIT</a>
-
-        </div>
+        <%= erb :'partials/bucket_card', :layout => false, :locals => {:bucket => bucket} %>
       <% end %>
 
       <a href="buckets/new">
