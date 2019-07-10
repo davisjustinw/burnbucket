@@ -103,7 +103,7 @@
 
 
 # Backlog
-
+- add logout to header remove from footer
 - update add moment in edit bucket
 - add quick moment input in buckets route
 - add balanccing function

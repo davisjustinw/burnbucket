@@ -39,6 +39,23 @@ class BucketController < ApplicationController
     end
   end
 
+  get '/buckets/:slug/edit' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find(session[:user_id])
+      @bucket = @user.buckets.find_by_slug params[:slug]
+
+      if @bucket
+        @moments = @bucket.moments
+        erb :'buckets/edit_bucket'
+      else
+        flash[:message] = "You do not have permission to edit this bucket or it does not exist"
+        redirect '/buckets'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
   get '/buckets/:slug' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
@@ -56,22 +73,7 @@ class BucketController < ApplicationController
     end
   end
 
-  get '/buckets/:slug/edit' do
-    if Helpers.is_logged_in?(session)
-      @user = User.find(session[:user_id])
-      @bucket = @user.buckets.find_by_slug params[:slug]
 
-      if @bucket
-        @moments = @bucket.moments
-        erb :'buckets/edit_bucket'
-      else
-        flash[:message] = "You do not have permission to edit this bucket or it does not exist"
-        redirect '/buckets'
-      end
-    else
-      redirect '/login'
-    end
-  end
 
   patch '/buckets/:id' do
     if Helpers.is_logged_in?(session)
