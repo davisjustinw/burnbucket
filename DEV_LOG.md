@@ -101,10 +101,15 @@
 - fix edit bucket link to route to edit buckets
 - fix bucket widths
 
+## Jul 10
+
+- fix moments each on edit bucket erb
 
 # Backlog
+
+- update moment section of edit bucket to new model
+- credit debit position on edit bucket for moments
 - add logout to header remove from footer
-- update add moment in edit bucket
 - add quick moment input in buckets route
 - add balanccing function
 - layout

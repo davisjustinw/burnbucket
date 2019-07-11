@@ -83,12 +83,15 @@ class BucketController < ApplicationController
           @bucket.update(params[:bucket])
 
           #update moments
+        if params[:moments]
           params[:moments].each do |moment|
             @bucket.moments.find(moment[:id]).update(moment)
           end
+        end
 
           #add new moment
           if !params[:new_moment].empty?
+            params[:new_moment][:unit] = Unit.find_or_create_by(name: params[:new_unit][:name])
             @bucket.moments.create(params[:new_moment])
           end
 

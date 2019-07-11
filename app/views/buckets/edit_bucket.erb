@@ -10,24 +10,29 @@
   <label for="bucket[name]">Name</label>
   <input type="text" name="bucket[name]" value=<%= @bucket.name %>>
   </br>
-  
+
   <h2>Moments</h2>
 
   <% @moments.each do |moment| %>
 
-    <label for="entries[][name]">Name</label>
-    <input type="text" name="entries[][name]" value=<%= moment.name %>>
-    <label for="entries[][amount]">Amount</label>
-    <input type="text" name="entries[][amount]" value=<%= moment.amount %>>
-    <input type="hidden" name="entries[][id]" value=<%= moment.id %>>
+    <label for="moments[][name]">Name</label>
+    <input type="text" name="moments[][name]" value=<%= moment.name %>>
+    <label for="moments[][amount]">Value</label>
+    <input type="text" name="moments[][amount]" value=<%= moment.value %>>
+    <label for="moments[][amount]">Unit</label>
+    <input type="text" name="moments[][amount]" value=<%= moment.unit.name %>>
+    <input type="hidden" name="moments[][id]" value=<%= moment.id %>>
     </br>
   <% end %>
 
   <label for="new_moment[name]">Name</label>
   <input type="text" name="new_moment[name]">
 
-  <label for="new_moment[amount]">Amount</label>
-  <input type="text" name="new_moment[amount]">
+  <label for="new_moment[value]">value</label>
+  <input type="text" name="new_moment[value]">
+
+  <label for="new_unit[moment]">unit</label>
+  <input type="text" name="new_unit[name]">
   </br>
   <input type="submit" name="submit">
 </form>
