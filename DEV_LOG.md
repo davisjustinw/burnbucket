@@ -104,11 +104,14 @@
 ## Jul 10
 
 - fix moments each on edit bucket erb
-
-# Backlog
-
 - update moment section of edit bucket to new model
 - credit debit position on edit bucket for moments
+
+# Backlog
+- create journal mechanism on main page.
+- individual buckets aren't editable
+
+
 - add logout to header remove from footer
 - add quick moment input in buckets route
 - add balanccing function

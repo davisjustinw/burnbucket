@@ -1,11 +1,28 @@
 <%= erb :'partials/bucket_breadcrumb' %>
+<% if flash.has?(:message) %>
+  <%= flash[:message]%>
+<% end %>
 
-<ul>
+<form action="/buckets/<%= @bucket.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+
+  <input type="text" name="bucket[name]" value=<%= @bucket.name %>>
+  </br>
+
   <% @moments.each do |moment| %>
 
-    <li><%= moment.name %> - <%= moment.value %> <%= moment.unit %> <%= moment.start %> - <%= moment.end %></li>
-
+    <%= erb :'partials/moment_card', :layout => false, :locals => {:moment => moment} %>
   <% end %>
-</ul>
 
-<a class="button" href="/buckets/<%= @bucket.slug %>/edit">Edit Bucket</a>
+  <label for="new_moment[name]">Name</label>
+  <input type="text" name="new_moment[name]">
+
+  <label for="new_moment[value]">value</label>
+  <input type="text" name="new_moment[value]">
+
+  <label for="new_unit[moment]">unit</label>
+  <input type="text" name="new_unit[name]">
+  </br>
+  <input type="submit" name="submit">
+</form>

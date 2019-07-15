@@ -1,10 +1,10 @@
+<form method="post" action="/buckets/<%= bucket.id %>">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<button type="submit">
 <div class="bucket_card">
   <h1><%= bucket.name %></h1>
   <h3>dollars:hours</h3>
   <h2>125:1</h2>
-  <a href="buckets/<%= bucket.slug %>/edit">EDIT</a>
-  <form method="post" action="/buckets/<%= bucket.id %>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="DELETE">
-  </form>
 </div>
+</button>
+</form>

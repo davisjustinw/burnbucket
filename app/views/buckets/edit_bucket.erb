@@ -7,7 +7,7 @@
 <form action="/buckets/<%= @bucket.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <label for="bucket[name]">Name</label>
+
   <input type="text" name="bucket[name]" value=<%= @bucket.name %>>
   </br>
 
@@ -17,10 +17,13 @@
 
     <label for="moments[][name]">Name</label>
     <input type="text" name="moments[][name]" value=<%= moment.name %>>
-    <label for="moments[][amount]">Value</label>
-    <input type="text" name="moments[][amount]" value=<%= moment.value %>>
-    <label for="moments[][amount]">Unit</label>
-    <input type="text" name="moments[][amount]" value=<%= moment.unit.name %>>
+    
+    <label for="moments[][value]">Value</label>
+    <input type="text" name="moments[][value]" value=<%= moment.value %>>
+
+    <label for="moments[][unit]">Unit</label>
+    <input type="text" name="moments[][unit]" value=<%= moment.unit.name %>>
+
     <input type="hidden" name="moments[][id]" value=<%= moment.id %>>
     </br>
   <% end %>

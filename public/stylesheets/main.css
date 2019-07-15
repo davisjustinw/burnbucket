@@ -1,88 +1,106 @@
 
-  /* --- Reset Styles --- */
-  * {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   html, body {
     height: 100%;
     width: 100%;
-  }
-
-  a, a:visited {
-    text-decoration: none;
+    font-family: 'Courier', monospace;
+    font-size: 1em;
     color: black;
+
   }
 
-  input[type=submit] {
-    border: none;
-    margin: 0;
-    text-decoration: none;
-    color: #333;
-    font-family: 'Anonymous Pro', monospace;
-    font-size: 1rem;
-    background-color: inherit;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
-    color: #333;
-    font-family: 'Anonymous Pro', monospace;
-    line-height: 18px;
+    background-color: lightgray;
+
   }
 
-
-  header {
-    padding: 1.25em;
-    background: lightgray;
+  #grid_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "psi psi_naught"
+      "form_choices form_choices"
+      "footer footer";
   }
 
-  #buckets {
+  #psi {
+    grid-area: psi;
+  }
+
+  #psi_naught {
+    grid-area: psi_naught;
+  }
+
+  #form_choices {
+    grid-area: form_choices;
+    border-top: 5px solid lightslategray;
     display: flex;
-    width: 100%;
     justify-content: center;
   }
 
-  #buckets h1 {
-    text-align: center;
-    color: red;
-  }
+  header {
+    border-bottom: 5px solid slategray;
+    grid-area: header;
 
-  .bucket_column {
-    padding: 1em;
-    background-color: black;
-    flex-basis: 30%;
-  }
-
-  .bucket_card {
-    background-color: lightgreen;
-    padding: 1.5em;
-    margin: 1em;
-
-  }
-
-  .bucket_card h2 {
-    padding: .1em;
-    text-align: center;
-  }
-
-  .bucket_card h3 {
-    padding: .1em;
-    text-align: center;
-  }
-
-  .bucket_card h1 {
-    padding: .25em;
-    text-align: center;
   }
 
   footer {
-    padding: .25em;
-    background: lightgray;
+
     text-align: center;
+    grid-area: footer;
   }
+
+
+
+  header, section, footer {
+    padding-left: 2em;
+  }
+
+
+
+  section {
+    padding: 2em;
+  }
+
+
+
+  h2 {
+    text-decoration: underline;
+  }
+
+
+
+  a, a:visited {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5em
+  }
+
+  a:hover {
+    color: slategray;
+    text-decoration: underline;
+  }
+
+  button[type=submit] {
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    text-align: center;
+    padding: 0em;
+    font-size: 1.5em;
+  }
+
+  button:hover {
+    color: slategray;
+    text-decoration: underline;
+  }
+
+.toggle input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+.toggle input[type="checkbox"]:checked + label {
+  color: slategray;
+}

@@ -1,0 +1,44 @@
+<header>
+  <h1>
+    <%= @user.username %>'s buckets |
+  </h1>
+</header>
+  <div id="columns" >
+    <div class="psi bucket_column">
+
+      <h1>PSI</h1>
+      <% @buckets.select {|bucket| bucket.potential}.each do |bucket| %>
+        <%= erb :'partials/bucket_card', :layout => false, :locals => {:bucket => bucket} %>
+      <% end %>
+
+      <a href="buckets/new?potential=on">
+        <%= erb :'partials/add_card' %>
+      </a>
+    </div>
+
+
+    <div class="psi-naught bucket_column">
+
+      <h1>PSI_NAUGHT</h1>
+
+      <% @buckets.select {|bucket| !bucket.potential}.each do |bucket| %>
+        <%= erb :'partials/bucket_card', :layout => false, :locals => {:bucket => bucket} %>
+      <% end %>
+
+      <a href="buckets/new">
+        <%= erb :'partials/add_card' %>
+      </a>
+    </div>
+
+
+      <div class="journal bucket_column">
+
+        <h1>Journal</h1>
+        <a href="buckets/new">
+          <%= erb :'partials/add_card' %>
+        </a>
+
+
+      </div>
+
+  </div>

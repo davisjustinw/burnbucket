@@ -6,6 +6,7 @@ class BucketController < ApplicationController
       if User.exists? session[:user_id]
         @user = User.find session[:user_id]
         @buckets = @user.buckets
+        @moments = @user.moments
 
         erb :'buckets/buckets'
       else
@@ -14,6 +15,13 @@ class BucketController < ApplicationController
     else
       redirect '/login'
     end
+  end
+
+  get'/buckets/detail' do
+
+    binding.pry
+
+    redirect '/buckets'
   end
 
   get '/buckets/new' do
@@ -29,7 +37,7 @@ class BucketController < ApplicationController
 
   post '/buckets' do
     if Helpers.is_logged_in?(session)
-      binding.pry
+
       @user = User.find(session[:user_id])
       @user.buckets.create(params[:bucket])
 
@@ -84,7 +92,9 @@ class BucketController < ApplicationController
 
           #update moments
         if params[:moments]
+          binding.pry
           params[:moments].each do |moment|
+            moment[:unit] = Unit.find_or_create_by(name: moment[:unit])
             @bucket.moments.find(moment[:id]).update(moment)
           end
         end
