@@ -1,12 +1,15 @@
 
 <div class="toggle">
+  <a href="buckets/<%= bucket.slug %>"><%= bucket.name %></a>
   <input type="checkbox" id="bucket_<%= bucket.id %>" name="bucket[]" value="<%= bucket.id %>">
   <label for="bucket_<%= bucket.id %>">
-    <h3><%=bucket.name %></h3>
-    <ul>
-      <li>1000 units</li>
-      <li>500 other_units</li>
-      <li>10:5</li>
-    </ul>
+    <p>
+      <ul>
+        <li>1000 units</li>
+        <li>500 other_units</li>
+      </ul>
+      10:5
+    </p>
   </label>
+  ---
 </div>

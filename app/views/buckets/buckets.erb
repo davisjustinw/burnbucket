@@ -1,9 +1,13 @@
 <form action="/buckets/detail" method="get">
   <div id="grid_wrapper">
+
     <header>
-      <h1>
-        <%= @user.username %>'s buckets
-      </h1>
+      <div id="user_caption">
+        <h1><%= @user.username %>'s buckets</h1>
+      </div>
+      <div id="logout">
+        <a href="/logout">logout</a>
+      </div>
     </header>
 
 
@@ -32,11 +36,9 @@
 
       </section>
 
-      <section id="form_choices">
-        <button type="submit" name="submit">submit</button>
-        <button type="submit" name="submit">submit</button>
-        <button type="submit" name="submit">submit</button>
-        <a href="/logout">logout</a>
+      <section id="form_control">
+        <input type="text" id="moment_value" name="moment_input">
+        <button type="submit" id="moment_submit" name="submit">submit</button>
       </section>
 
 

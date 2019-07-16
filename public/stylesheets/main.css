@@ -19,7 +19,7 @@
     grid-template-areas:
       "header header"
       "psi psi_naught"
-      "form_choices form_choices"
+      "form_control form_control"
       "footer footer";
   }
 
@@ -31,23 +31,37 @@
     grid-area: psi_naught;
   }
 
-  #form_choices {
-    grid-area: form_choices;
+  #form_control {
+    grid-area: form_control;
     border-top: 5px solid lightslategray;
     display: flex;
     justify-content: center;
+    flex-basis: 0;
   }
 
-  header {
-    border-bottom: 5px solid slategray;
-    grid-area: header;
+  #form_control * {
+    flex-grow: 1;
+  }
 
+  #moment_value {
+    flex-grow: 7;
+  }
+
+
+  header {
+    grid-area: header;
+    border-bottom: 5px solid slategray;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
   footer {
 
     text-align: center;
     grid-area: footer;
+
   }
 
 
@@ -68,39 +82,31 @@
     text-decoration: underline;
   }
 
-
-
-  a, a:visited {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.5em
-  }
-
-  a:hover {
-    color: slategray;
-    text-decoration: underline;
-  }
-
-  button[type=submit] {
+  button[type=submit], a, a:visited {
     border: none;
     text-decoration: none;
     color: inherit;
     background-color: inherit;
     cursor: pointer;
     text-align: center;
-    padding: 0em;
+    padding: .25em;
     font-size: 1.5em;
   }
 
-  button:hover {
+  button:hover, a:hover {
     color: slategray;
     text-decoration: underline;
   }
 
-.toggle input[type="checkbox"] {
-  position: absolute;
-  visibility: hidden;
-}
-.toggle input[type="checkbox"]:checked + label {
-  color: slategray;
-}
+  .toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .toggle input[type="checkbox"]:checked + label {
+    color: slategray;
+  }
+
+  .toggle input[type="checkbox"]:focus + label, .toggle input[type="checkbox"]:hover + label {
+    outline: solid 2px black
+  }
