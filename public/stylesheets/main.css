@@ -107,6 +107,6 @@
     color: slategray;
   }
 
-  .toggle input[type="checkbox"]:focus + label, .toggle input[type="checkbox"]:hover + label {
-    outline: solid 2px black
+  .toggle input[type="checkbox"]:focus + label, a:focus, input:focus, button:focus{
+      outline: solid 4px slategray;
   }

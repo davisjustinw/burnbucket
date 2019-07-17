@@ -7,4 +7,5 @@ end
 use Rack::MethodOverride
 use BucketController
 use UserController
+use JournalController
 run ApplicationController

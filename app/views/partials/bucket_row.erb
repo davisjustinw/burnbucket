@@ -1,16 +1,13 @@
 
 <div class="toggle">
-  <a href="buckets/<%= bucket.slug %>"><%= bucket.name %></a>
   <input type="checkbox" id="bucket_<%= bucket.id %>" name="bucket[]" value="<%= bucket.id %>">
   <label for="bucket_<%= bucket.id %>">
-    <p>
+    <%= bucket.name %>
       <ul>
         <% bucket.all_sums_by_unit.each do |sum| %>
         <li><%= sum[:value] %> <%= sum[:name] %></li>
         <% end %>
       </ul>
-      10:5
-    </p>
   </label>
   ---
 </div>
