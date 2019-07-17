@@ -5,8 +5,9 @@
   <label for="bucket_<%= bucket.id %>">
     <p>
       <ul>
-        <li>1000 units</li>
-        <li>500 other_units</li>
+        <% bucket.all_sums_by_unit.each do |sum| %>
+        <li><%= sum[:value] %> <%= sum[:name] %></li>
+        <% end %>
       </ul>
       10:5
     </p>

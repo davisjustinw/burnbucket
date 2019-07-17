@@ -108,6 +108,8 @@
 - credit debit position on edit bucket for moments
 
 # Backlog
+
+-work out unit relationship to get Bucket based unit sums
 - create journal mechanism on main page.
 - individual buckets aren't editable
 

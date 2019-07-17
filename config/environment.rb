@@ -11,4 +11,5 @@ ActiveRecord::Base.establish_connection(
 #require './app/controllers/application_controller'
 #test pulling this out later
 require './app/models/concerns/slugifiable'
+require 'prime'
 require_all 'app'
