@@ -107,9 +107,18 @@
 - update moment section of edit bucket to new model
 - credit debit position on edit bucket for moments
 
+## Jul 13 - 16
+- work out unit relationship to get Bucket based unit sums
+- create journal entry input on buckets page
 # Backlog
 
--work out unit relationship to get Bucket based unit sums
+
+- if no units on during quick entry, if only one unit use that
+- if no numbers makes a named entry
+- use @bucket for bucket naming
+- slug bucket names
+- slug hashtags?
+
 - create journal mechanism on main page.
 - individual buckets aren't editable
 
