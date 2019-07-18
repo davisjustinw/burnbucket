@@ -5,9 +5,15 @@
       <div id="user_caption">
         <h1><%= @user.username %>'s buckets</h1>
       </div>
+      <div class="message">
+        <% if flash.has?(:message) %>
+          <%= flash[:message]%>
+        <% end %>
+      </div>
       <div id="logout">
         <a href="/logout">logout</a>
       </div>
+
     </header>
 
 
