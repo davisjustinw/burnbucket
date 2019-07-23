@@ -24,9 +24,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
+
     params.delete :submit
     @user = User.new(params)
-
     if @user.valid?
       @user.save
       session[:user_id] = @user.id

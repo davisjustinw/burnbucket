@@ -112,7 +112,8 @@
 - create journal entry input on buckets page
 # Backlog
 
-
+- how to create a null unit.
+- display bucket journal
 - if no units on during quick entry, if only one unit use that
 - if no numbers makes a named entry
 - use @bucket for bucket naming

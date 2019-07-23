@@ -6,6 +6,10 @@ class Moment < ActiveRecord::Base
   belongs_to :bucket
   belongs_to :unit
 
+  #before_create do
+  #  binding.pry
+  #end
+
   def self.sum_by_unit(unit)
     Moment.where(unit_id: unit).sum('value')
   end
