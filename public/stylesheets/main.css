@@ -18,7 +18,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "header header"
-      "psi psi_naught"
+      "psi_naught psi"
       "form_control form_control"
       "footer footer";
   }
@@ -43,9 +43,11 @@
     flex-grow: 1;
   }
 
-  #moment_value {
-    flex-grow: 7;
+  #moment_note {
+    flex-grow: 4;
   }
+
+
 
 
   header {

@@ -18,7 +18,7 @@ class BucketController < ApplicationController
   end
 
   get'/buckets/detail' do
-
+    #buckets/detail
     binding.pry
 
     redirect '/buckets'

@@ -110,8 +110,14 @@
 ## Jul 13 - 16
 - work out unit relationship to get Bucket based unit sums
 - create journal entry input on buckets page
+
+
 # Backlog
 
+- traditional form instead of queue box
+- change potential to integer to clean up code
+
+- not working without a hashtag
 - how to create a null unit.
 - display bucket journal
 - if no units on during quick entry, if only one unit use that
@@ -137,3 +143,7 @@
 - validate uniqueness of bucket name within user's buckets
 - clock in
 - github integration
+
+# Blog
+- code like you'll return
+- sometimes you have to break the spin

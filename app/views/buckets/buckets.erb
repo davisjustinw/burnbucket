@@ -16,34 +16,36 @@
 
     </header>
 
+      <section id="psi_naught">
 
+        <h2>Actual</h2>
+
+        <% @buckets.select {|bucket| bucket.potential == 1}.each do |bucket| %>
+          <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
+        <% end %>
+
+        <a href="buckets/new?potential=1">add bucket</a>
+
+      </section>
 
       <section id="psi">
 
-        <h2>psi</h2>
+        <h2>Plan</h2>
 
-        <% @buckets.select {|bucket| bucket.potential}.each do |bucket| %>
+        <% @buckets.select {|bucket| bucket.potential == -1}.each do |bucket| %>
           <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
         <% end %>
 
-        <a href="buckets/new?potential=on">add_bucket</a>
+        <a href="buckets/new?potential=-1">add bucket</a>
 
       </section>
 
-      <section id="psi_naught">
 
-        <h2>psi_naught</h2>
-
-        <% @buckets.select {|bucket| !bucket.potential}.each do |bucket| %>
-          <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
-        <% end %>
-
-        <a href="buckets/new">add_bucket</a>
-
-      </section>
 
       <section id="form_control">
-        <input type="text" id="moment_value" name="moment_input">
+        <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
+        <input type="text" id="moment_unit" name="moment[unit]" placeholder="units" required>
+        <input type="text" id="moment_note" name="moment[note]" placeholder="note" required>
         <button type="submit" id="moment_add" name="function" value="submit">submit</button>
       </section>
 

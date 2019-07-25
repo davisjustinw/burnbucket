@@ -9,22 +9,14 @@ class JournalController < ApplicationController
       @user = User.find(session[:user_id])
 
       if params[:bucket]
-        # Parse the input
-        value_unit, note = params[:moment_input].split('#')
-        value, unit = value_unit.strip.split(' ', 2)
-        value = value.to_i
 
-
-        if unit
-          unit = Unit.find_or_create_by name: unit
-        end
-
+        params[:moment][:unit] = Unit.find_or_create_by name: params[:moment][:unit]
+        binding.pry
         params[:bucket].each do |bucket_id|
           if @user.buckets.find bucket_id
             Bucket.find(bucket_id).tap do |bucket|
-              binding.pry
               bucket.potential ? new_value = value * -1 : new_value = value
-              bucket.moments.create name: note, unit: unit, value: new_value
+              bucket.moments.create params[:moment]
             end
           else
             flash[:message] = "You don't have permission to edit this bucket"
