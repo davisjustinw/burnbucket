@@ -3,9 +3,11 @@ class Bucket < ActiveRecord::Base
   include Slugifiable::InstanceMethods
 
   validates :name, presence: true
-
+  #validate two moments?
   belongs_to :user
-  has_many :moments
+  has_many :bucket_moments
+  has_many :moments, through: :bucket_moments
+
   has_many :units, -> { distinct }, through: :moments
 
   def sum_by_unit (id)

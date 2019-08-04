@@ -1,21 +1,10 @@
 class Moment < ActiveRecord::Base
 
-  validates :name, presence: true
+  validates :memo, presence: true
 
   belongs_to :user
-  belongs_to :bucket
+  has_many :bucket_moments
+  has_many :buckets, through: :bucket_moments
   belongs_to :unit
-
-  #before_create do
-  #  binding.pry
-  #end
-
-  def self.sum_by_unit(unit)
-    Moment.where(unit_id: unit).sum('value')
-  end
-
-  def self.sum_by_unit_name(unit)
-    Moment.where( unit_id: Unit.find_by(name: "dangles") ).sum('value')
-  end
 
 end

@@ -16,6 +16,15 @@
 
     </header>
 
+      <section id="journal">
+        <h2>journal</h2>
+
+        <% @moments.each do |moment| %>
+          <%= erb :'partials/journal_row', :layout => false, :locals => {:moment => moment} %>
+        <% end %>
+
+      </section>
+
       <section id="psi_naught">
 
         <h2>Actual</h2>
@@ -45,7 +54,7 @@
       <section id="form_control">
         <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
         <input type="text" id="moment_unit" name="moment[unit]" placeholder="units" required>
-        <input type="text" id="moment_note" name="moment[name]" placeholder="name" required>
+        <input type="text" id="moment_note" name="moment[memo]" placeholder="memo" required>
         <button type="submit" id="moment_add" name="function" value="submit">submit</button>
       </section>
 

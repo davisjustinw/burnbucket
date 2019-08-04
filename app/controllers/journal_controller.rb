@@ -11,19 +11,16 @@ class JournalController < ApplicationController
       if params[:bucket]
 
         params[:moment][:unit] = Unit.find_or_create_by name: params[:moment][:unit]
-        #binding.pry
+        new_moment = Moment.create params[:moment]
+        binding.pry
         params[:bucket].each do |bucket_id|
           if @user.buckets.find bucket_id
-            Bucket.find(bucket_id).tap do |bucket|
-              bucket.moments.new(params[:moment]).tap do |moment|
-                moment.value = moment.value * bucket.potential
-                moment.save
-              end
-            end
+            new_moment.buckets << Bucket.find(bucket_id)
           else
             flash[:message] = "You don't have permission to edit this bucket"
           end
         end
+        binding.pry
 
       else
         flash[:message] = "No bucket selected"

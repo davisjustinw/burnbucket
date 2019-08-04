@@ -113,6 +113,21 @@
 
 
 # Backlog
+- evaluate unit sums after model change
+- Journal Model 2 moments and a time stamp
+- each journal entry is one unit type
+- Journal format
+- memo in journal entry?
+
+Year
+month day debit account   debit amount
+             credit account            credit amt
+          (memo)
+
+
+
+      day
+
 
 - traditional form instead of queue box
 - change potential to integer to clean up code
