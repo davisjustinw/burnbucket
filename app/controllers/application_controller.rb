@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
 
   get '/signup' do
     if Helpers.is_logged_in?(session)
-      redirect '/buckets'
+      redirect '/logout'
     else
       erb :'users/create_user'
     end
@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect '/buckets'
+      redirect '/journal'
     else
       flash[:messages] = @user.errors.messages
       redirect '/signup'
@@ -40,7 +40,8 @@ class ApplicationController < Sinatra::Base
   get '/login' do
     @users = User.all
     if Helpers.is_logged_in?(session)
-      redirect '/buckets'
+      binding.pry
+      redirect '/journal'
     else
       erb :'users/login'
     end
@@ -50,7 +51,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by username: params[:username]
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/buckets'
+      redirect '/journal'
     else
       redirect '/login'
     end

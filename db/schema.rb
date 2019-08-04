@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20190803220400) do
   create_table "bucket_moments", force: :cascade do |t|
     t.integer "bucket_id"
     t.integer "moment_id"
+    t.integer "multiplier"
   end
 
   create_table "buckets", force: :cascade do |t|
@@ -25,9 +26,10 @@ ActiveRecord::Schema.define(version: 20190803220400) do
   end
 
   create_table "moments", force: :cascade do |t|
-    t.string  "memo"
-    t.integer "value"
-    t.integer "unit_id"
+    t.string   "memo"
+    t.integer  "value"
+    t.datetime "timestamp"
+    t.integer  "unit_id"
   end
 
   create_table "units", force: :cascade do |t|

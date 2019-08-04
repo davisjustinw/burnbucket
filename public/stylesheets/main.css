@@ -15,12 +15,16 @@
 
   #grid_wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-areas:
-      "header header"
-      "psi_naught psi"
-      "form_control form_control"
-      "footer footer";
+      "header header header"
+      "form_control form_control form_control"
+      "psi_naught psi journal"
+      "footer footer footer";
+  }
+
+  #journal {
+    grid-area: journal;
   }
 
   #psi {
@@ -111,4 +115,8 @@
 
   .toggle input[type="checkbox"]:focus + label, a:focus, input:focus, button:focus{
       outline: solid 4px slategray;
+  }
+
+  select:invalid {
+    color: gray;
   }

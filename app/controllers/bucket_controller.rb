@@ -7,7 +7,6 @@ class BucketController < ApplicationController
         @user = User.find session[:user_id]
         @buckets = @user.buckets
         @moments = @user.moments
-        binding.pry
         erb :'buckets/buckets'
       else
         redirect '/logout'
@@ -17,12 +16,6 @@ class BucketController < ApplicationController
     end
   end
 
-  get'/buckets/detail' do
-    #buckets/detail
-    binding.pry
-
-    redirect '/buckets'
-  end
 
   get '/buckets/new' do
     if Helpers.is_logged_in?(session)

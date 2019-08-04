@@ -11,7 +11,7 @@ class Bucket < ActiveRecord::Base
   has_many :units, -> { distinct }, through: :moments
 
   def sum_by_unit (id)
-    moments.where(unit: id).sum 'value'
+    moments.where(unit: id).sum('value') * potential
   end
 
   def all_sums_by_unit
