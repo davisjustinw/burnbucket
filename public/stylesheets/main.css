@@ -19,7 +19,7 @@
     grid-template-areas:
       "header header header"
       "form_control form_control form_control"
-      "psi_naught psi journal"
+      "buckets buckets journal"
       "footer footer footer";
   }
 
@@ -27,13 +27,11 @@
     grid-area: journal;
   }
 
-  #psi {
-    grid-area: psi;
+  #buckets {
+    grid-area: buckets;
   }
 
-  #psi_naught {
-    grid-area: psi_naught;
-  }
+  
 
   #form_control {
     grid-area: form_control;

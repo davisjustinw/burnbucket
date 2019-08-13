@@ -20,11 +20,7 @@
 
     <section id="form_control">
       <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
-      <input type="text" id="moment_unit" name="moment[unit]" placeholder="units" required>
       <input type="text" id="moment_note" name="moment[memo]" placeholder="memo" required>
-
-
-
 
       <select name="bucket[to]" required>
         <option default selected value="">To</option>
@@ -32,14 +28,6 @@
           <option value="<%=bucket.id%>"><%= bucket.name %></option>
         <% end %>
       </select>
-
-      <select name="bucket[from]" required>
-        <option default selected value="">From</option>
-        <% @buckets.each do |bucket| %>
-          <option value="<%=bucket.id%>"><%= bucket.name %></option>
-        <% end %>
-      </select>
-
 
       <button type="submit" id="moment_add" name="function" value="submit">submit</button>
     </section>
@@ -65,7 +53,7 @@
 
       </section>
 
-      
+
     <footer>
       <p><small>&copy; 2019 <strong>burnbucket</strong></small></p>
     </footer>
