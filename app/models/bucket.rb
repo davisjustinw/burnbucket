@@ -10,7 +10,7 @@ class Bucket < ActiveRecord::Base
   belongs_to :unit
 
   def sum
-    42
+    moments.sum "value"
   end
 
 
