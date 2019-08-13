@@ -53,37 +53,19 @@
 
       </section>
 
-      <section id="psi_naught">
+      <section id="buckets">
 
         <h2>Burn</h2>
 
-        <% @buckets.select {|bucket| bucket.potential == 1}.each do |bucket| %>
+        <% @buckets.each do |bucket| %>
           <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
         <% end %>
 
-        <a href="buckets/new?potential=1">add bucket</a>
+        <a href="buckets/new">add bucket</a>
 
       </section>
 
-      <section id="psi">
-
-        <h2>Potential</h2>
-
-        <% @buckets.select {|bucket| bucket.potential == -1}.each do |bucket| %>
-          <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
-        <% end %>
-
-        <a href="buckets/new?potential=-1">add bucket</a>
-
-      </section>
-
-
-
-
-
-
-
-
+      
     <footer>
       <p><small>&copy; 2019 <strong>burnbucket</strong></small></p>
     </footer>
