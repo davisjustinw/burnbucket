@@ -31,7 +31,7 @@
     grid-area: buckets;
   }
 
-  
+
 
   #form_control {
     grid-area: form_control;
@@ -102,16 +102,16 @@
     text-decoration: underline;
   }
 
-  .toggle input[type="checkbox"] {
+  .toggle input[type="radio"] {
     position: absolute;
     opacity: 0;
   }
 
-  .toggle input[type="checkbox"]:checked + label {
+  .toggle input[type="radio"]:checked + label {
     color: slategray;
   }
 
-  .toggle input[type="checkbox"]:focus + label, a:focus, input:focus, button:focus{
+  .toggle input[type="radio"]:focus + label, a:focus, input:focus, button:focus{
       outline: solid 4px slategray;
   }
 
