@@ -1,6 +1,6 @@
 
 <div class="toggle">
-  <input type="radio" id="bucket_<%= bucket.id %>" name="bucket[]" value="<%= bucket.id %>">
+  <input type="radio" id="bucket_<%= bucket.id %>" name="bucket" value="<%= bucket.id %>">
   <label for="bucket_<%= bucket.id %>">
     <%= bucket.name %>
     <%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name %>
