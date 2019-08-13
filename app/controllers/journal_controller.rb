@@ -6,7 +6,6 @@ class JournalController < ApplicationController
         @user = User.find session[:user_id]
         @buckets = @user.buckets
         @moments = @user.moments
-
         erb :'buckets/journal'
       else
         redirect '/logout'
@@ -25,7 +24,7 @@ class JournalController < ApplicationController
       params[:moment][:timestamp] = Time.now
 
       user_bucket = @user.buckets.find params[:bucket]
-      binding.pry
+      #binding.pry
       if user_bucket
         user_bucket.moments.create params[:moment]
       else
