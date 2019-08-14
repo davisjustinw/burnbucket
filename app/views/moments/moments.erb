@@ -1,8 +1,0 @@
-<h2><%= @user.username %>'s moments | <a class="button" href="/moments/new">+</a></h2>
-<% if flash.has?(:message) %>
-  <p><%= flash[:message] %></p>
-<% end %>
-
-  <% @moments.each do |moment| %>
-    <a href="moments/<%= moment.id %>"><%= moment.name %></a></br>
-  <% end %>

@@ -1,9 +1,0 @@
-<div class="bucket_card">
-  <h1><%= moment.name %></h1>
-  <h2><%= moment.value %> <%= moment.unit.name %></h2>
-  <a href="moments/<%= moment.id %>/edit">EDIT</a>
-  <form method="post" action="/moments/<%= moment.id %>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="DELETE">
-  </form>
-</div>
