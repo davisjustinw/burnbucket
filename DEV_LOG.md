@@ -111,15 +111,20 @@
 - work out unit relationship to get Bucket based unit sums
 - create journal entry input on buckets page
 
+## Aug 13
+- fix bucket sum
+- add value and bucket to journal entry
 
 # Backlog
 
 - add date time to journal entry
 - functions
-- fix bucket sum
-- add value and bucket to journal entry
-- add action (ratio sum)
 - nest bucket ?
+- add action (ratio sum)
+
+
+
+
 
 
 - evaluate unit sums after model change
