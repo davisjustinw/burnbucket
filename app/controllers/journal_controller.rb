@@ -6,6 +6,7 @@ class JournalController < ApplicationController
         @user = User.find session[:user_id]
         @buckets = @user.buckets
         @moments = @user.moments
+        #binding.pry
         erb :'buckets/journal'
       else
         redirect '/logout'
@@ -22,10 +23,10 @@ class JournalController < ApplicationController
       @user = User.find(session[:user_id])
 
       params[:moment][:timestamp] = Time.now
+      user_bucket = @user.buckets.find params[:moment][:bucket]
 
-      user_bucket = @user.buckets.find params[:bucket]
-      #binding.pry
       if user_bucket
+        params[:moment].delete :bucket
         user_bucket.moments.create params[:moment]
       else
         flash[:message] = "You don't have permission to edit this bucket"

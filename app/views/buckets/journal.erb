@@ -31,6 +31,13 @@
       <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
       <input type="text" id="moment_note" name="moment[memo]" placeholder="memo" required>
 
+      <select name="moment[bucket]" required>
+        <option default selected value="">Bucket</option>
+        <% @buckets.each do |bucket| %>
+          <option value="<%=bucket.id%>"><%= bucket.name %></option>
+        <% end %>
+      </select>
+
 
       <button type="submit" id="moment_add" name="function" value="submit">submit</button>
     </section>
