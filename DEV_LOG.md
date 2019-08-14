@@ -113,6 +113,9 @@
 
 
 # Backlog
+
+- add date time to journal entry
+- functions
 - fix bucket sum
 - add value and bucket to journal entry
 - add action (ratio sum)

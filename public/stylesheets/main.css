@@ -135,12 +135,25 @@
     font-size: 1.5em;
   }
 
+  a, a:visited {
+    border: none;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    text-align: center;
+    padding: 0px;
+    font-size: 1em;
+  }
+
   button:hover, a:hover {
     color: slategray;
     text-decoration: underline;
   }
 
-
+  select:invalid {
+    color: gray;
+  }
 
   /*.toggle input[type="radio"] {
     position: absolute;
@@ -155,6 +168,4 @@
       outline: solid 4px slategray;
   }
 
-  select:invalid {
-    color: gray;
-  }*/
+  */
