@@ -1,1 +1,12 @@
-<p><%= moment.memo %> - <%= moment.value %> <%= moment.bucket.unit.name %> - <%= moment.bucket.name %></p>
+<div class="journal_row">
+  <div class="name"><%= moment.bucket.name %></div>
+  <div class="memo"><%= moment.memo %></div>
+  <% if moment.value.negative? %>
+    <div class="credit">
+  <% else %>
+    <div class="debit">
+  <% end %>
+
+      <%= moment.value %> <%= moment.bucket.unit.name %>
+    </div>
+</div>

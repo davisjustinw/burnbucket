@@ -15,17 +15,6 @@
       </div>
 
     </header>
-    <section id="buckets">
-
-      <h2>Burn</h2>
-
-      <% @buckets.each do |bucket| %>
-        <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
-      <% end %>
-
-      <a href="buckets/new">add bucket</a>
-
-    </section>
 
     <section id="form_control">
       <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
@@ -41,6 +30,20 @@
 
       <button type="submit" id="moment_add" name="function" value="submit">submit</button>
     </section>
+    
+    <section id="buckets">
+
+      <h2>Burn</h2>
+
+      <% @buckets.each do |bucket| %>
+        <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
+      <% end %>
+
+      <a href="buckets/new">add bucket</a>
+
+    </section>
+
+
 
       <section id="journal">
         <h2>journal</h2>

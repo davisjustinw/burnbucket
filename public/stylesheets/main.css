@@ -15,12 +15,12 @@
 
   #grid_wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "header header header"
-      "buckets buckets journal"
-      "form_control form_control form_control"
-      "footer footer footer";
+      "header header"
+      "form_control form_control"
+      "journal buckets"
+      "footer footer";
   }
 
   #journal {
@@ -59,6 +59,44 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+  }
+
+  .journal_row {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-areas:
+      "name debit credit"
+      "memo memo memo";
+      padding-top: 1em;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .memo {
+    grid-area: memo;
+    padding-left: 2em;
+  }
+
+  .credit {
+    grid-area: credit;
+    justify-self: end;
+  }
+
+  .debit {
+    grid-area: debit;
+    justify-self: end;
+  }
+
+  .burn_row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: end;
+  }
+
+  .first {
+    justify-self: start;
   }
 
   footer {
@@ -102,9 +140,11 @@
     text-decoration: underline;
   }
 
-  .toggle input[type="radio"] {
-    /*position: absolute;
-    opacity: 0;*/
+
+
+  /*.toggle input[type="radio"] {
+    position: absolute;
+    opacity: 0;
   }
 
   .toggle input[type="radio"]:checked + label {
@@ -117,4 +157,4 @@
 
   select:invalid {
     color: gray;
-  }
+  }*/
