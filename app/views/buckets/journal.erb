@@ -14,27 +14,25 @@
         <a href="/logout">logout</a>
       </div>
 
-
-
     </header>
+    <section id="buckets">
+
+      <h2>Burn</h2>
+
+      <% @buckets.each do |bucket| %>
+        <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
+      <% end %>
+
+      <a href="buckets/new">add bucket</a>
+
+    </section>
 
     <section id="form_control">
       <input type="text" id="moment_value" name="moment[value]" placeholder="value" required>
-      <input type="text" id="moment_unit" name="moment[unit]" placeholder="units" required>
       <input type="text" id="moment_note" name="moment[memo]" placeholder="memo" required>
 
-
-
-
-      <select name="bucket[to]" required>
-        <option default selected value="">To</option>
-        <% @buckets.each do |bucket| %>
-          <option value="<%=bucket.id%>"><%= bucket.name %></option>
-        <% end %>
-      </select>
-
-      <select name="bucket[from]" required>
-        <option default selected value="">From</option>
+      <select name="moment[bucket]" required>
+        <option default selected value="">Bucket</option>
         <% @buckets.each do |bucket| %>
           <option value="<%=bucket.id%>"><%= bucket.name %></option>
         <% end %>
@@ -52,34 +50,6 @@
         <% end %>
 
       </section>
-
-      <section id="psi_naught">
-
-        <h2>Burn</h2>
-
-        <% @buckets.select {|bucket| bucket.potential == 1}.each do |bucket| %>
-          <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
-        <% end %>
-
-        <a href="buckets/new?potential=1">add bucket</a>
-
-      </section>
-
-      <section id="psi">
-
-        <h2>Potential</h2>
-
-        <% @buckets.select {|bucket| bucket.potential == -1}.each do |bucket| %>
-          <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
-        <% end %>
-
-        <a href="buckets/new?potential=-1">add bucket</a>
-
-      </section>
-
-
-
-
 
 
 

@@ -113,6 +113,12 @@
 
 
 # Backlog
+- fix bucket sum
+- add value and bucket to journal entry
+- add action (ratio sum)
+- nest bucket ?
+
+
 - evaluate unit sums after model change
 - Journal Model 2 moments and a time stamp
 - each journal entry is one unit type

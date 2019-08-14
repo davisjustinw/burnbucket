@@ -1,13 +1,5 @@
 
-<div class="toggle">
-  <input type="checkbox" id="bucket_<%= bucket.id %>" name="bucket[]" value="<%= bucket.id %>">
-  <label for="bucket_<%= bucket.id %>">
+
+
     <%= bucket.name %>
-      <ul>
-        <% bucket.all_sums_by_unit.each do |sum| %>
-        <li><%= sum[:value] %> <%= sum[:name] %></li>
-        <% end %>
-      </ul>
-  </label>
-  ---
-</div>
+    <%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name %>

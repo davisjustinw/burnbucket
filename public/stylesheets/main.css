@@ -18,8 +18,8 @@
     grid-template-columns: 1fr 1fr 2fr;
     grid-template-areas:
       "header header header"
+      "buckets buckets journal"
       "form_control form_control form_control"
-      "psi_naught psi journal"
       "footer footer footer";
   }
 
@@ -27,13 +27,11 @@
     grid-area: journal;
   }
 
-  #psi {
-    grid-area: psi;
+  #buckets {
+    grid-area: buckets;
   }
 
-  #psi_naught {
-    grid-area: psi_naught;
-  }
+
 
   #form_control {
     grid-area: form_control;
@@ -104,16 +102,16 @@
     text-decoration: underline;
   }
 
-  .toggle input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
+  .toggle input[type="radio"] {
+    /*position: absolute;
+    opacity: 0;*/
   }
 
-  .toggle input[type="checkbox"]:checked + label {
+  .toggle input[type="radio"]:checked + label {
     color: slategray;
   }
 
-  .toggle input[type="checkbox"]:focus + label, a:focus, input:focus, button:focus{
+  .toggle input[type="radio"]:focus + label, a:focus, input:focus, button:focus{
       outline: solid 4px slategray;
   }
 

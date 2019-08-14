@@ -20,7 +20,7 @@ class BucketController < ApplicationController
   get '/buckets/new' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
-      @potential = params[:potential]
+
       @bucket = Bucket.new(name: "new")
       erb :'buckets/new_bucket'
     else
@@ -32,8 +32,9 @@ class BucketController < ApplicationController
     if Helpers.is_logged_in?(session)
 
       @user = User.find(session[:user_id])
+      params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit]
       @user.buckets.create(params[:bucket])
-      redirect '/buckets'
+      redirect '/journal'
     else
       redirect '/login'
     end

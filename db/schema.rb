@@ -11,25 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190803220400) do
-
-  create_table "bucket_moments", force: :cascade do |t|
-    t.integer "bucket_id"
-    t.integer "moment_id"
-    t.integer "multiplier"
-  end
+ActiveRecord::Schema.define(version: 20190709030831) do
 
   create_table "buckets", force: :cascade do |t|
     t.string  "name"
-    t.integer "potential"
     t.integer "user_id"
+    t.integer "unit_id"
+    t.integer "size"
   end
 
   create_table "moments", force: :cascade do |t|
     t.string   "memo"
     t.integer  "value"
     t.datetime "timestamp"
-    t.integer  "unit_id"
+    t.integer  "bucket_id"
   end
 
   create_table "units", force: :cascade do |t|
