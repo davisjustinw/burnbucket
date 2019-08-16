@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190709030831) do
+ActiveRecord::Schema.define(version: 20190815041752) do
+
+  create_table "bucket_lists", force: :cascade do |t|
+    t.string  "name"
+    t.integer "user_id"
+  end
 
   create_table "buckets", force: :cascade do |t|
     t.string  "name"
     t.integer "user_id"
     t.integer "unit_id"
     t.integer "size"
+    t.integer "bucket_list_id"
   end
 
   create_table "moments", force: :cascade do |t|
