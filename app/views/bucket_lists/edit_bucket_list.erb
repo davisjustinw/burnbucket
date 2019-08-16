@@ -1,0 +1,27 @@
+<% if flash.has?(:messages) %>
+<ul>
+  <% flash[:messages].each do |message| %>
+    <li><%= message.first %> - <%= message.flatten.last %></li>
+  <% end %>
+</ul>
+
+<% end %>
+
+<form action="/bucket_lists/<%=@bucket_list.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <input type="text" name="bucket_list[name]" value="<%=@bucket_list.name%>">
+
+  <% @buckets.each do |bucket| %>
+    <div class="toggle">
+      <input type="checkbox" id="bucket_<%= bucket.id %>" name="buckets[]" value="<%= bucket.id %>" <%='checked' if @bucket_list.buckets.include?(bucket) %>>
+      <label for="bucket_<%= bucket.id %>">
+
+        <%= bucket.name %>
+
+      </label>
+    </div>
+  <% end %>
+
+  <input type="submit" name="submit">
+</form>
