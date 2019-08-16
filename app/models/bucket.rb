@@ -7,6 +7,7 @@ class Bucket < ActiveRecord::Base
   belongs_to :user
   has_many :moments
   belongs_to :unit
+  belongs_to :bucket_list
 
   def sum
     moments.sum "value"

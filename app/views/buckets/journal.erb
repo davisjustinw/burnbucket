@@ -35,8 +35,12 @@
 
       <h2>Burn</h2>
 
-      <% @buckets.each do |bucket| %>
+      <% @free_buckets.each do |bucket| %>
         <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
+      <% end %>
+
+      <% @bucket_lists.each do |bucket_list| %>
+        <%= erb :'partials/bucket_list_row', :layout => false, :locals => {:bucket_list => bucket_list} %>
       <% end %>
 
       <a href="buckets/new">add bucket</a>

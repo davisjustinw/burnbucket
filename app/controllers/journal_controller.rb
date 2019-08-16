@@ -4,9 +4,11 @@ class JournalController < ApplicationController
     if Helpers.is_logged_in? session
       if User.exists? session[:user_id]
         @user = User.find session[:user_id]
+        @bucket_lists = @user.bucket_lists
         @buckets = @user.buckets
+        @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
         @moments = @user.moments
-
+        #binding.pry
         erb :'buckets/journal'
       else
         redirect '/logout'
