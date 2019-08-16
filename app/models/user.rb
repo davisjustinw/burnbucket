@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :buckets
   has_many :moments, -> { distinct }, through: :buckets
+  has_many :bucket_lists
 
   def name
     username

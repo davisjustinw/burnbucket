@@ -6,7 +6,7 @@ class JournalController < ApplicationController
         @user = User.find session[:user_id]
         @buckets = @user.buckets
         @moments = @user.moments
-        
+
         erb :'buckets/journal'
       else
         redirect '/logout'

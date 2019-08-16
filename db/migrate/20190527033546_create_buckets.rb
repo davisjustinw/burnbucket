@@ -5,6 +5,7 @@ class CreateBuckets < ActiveRecord::Migration
       t.integer :user_id
       t.integer :unit_id
       t.integer :size
+      t.integer :bucket_list_id
     end
   end
 end

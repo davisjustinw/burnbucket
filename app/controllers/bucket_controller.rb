@@ -7,6 +7,7 @@ class BucketController < ApplicationController
         @user = User.find session[:user_id]
         @buckets = @user.buckets
         @moments = @user.moments
+
         erb :'buckets/buckets'
       else
         redirect '/logout'
