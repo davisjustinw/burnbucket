@@ -2,5 +2,6 @@
 
 <div class="burn_row">
   <div class="first"><%= bucket.name %></div>
-  <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name %></div>
+  <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name.pluralize(bucket.size) %></div>
+
 </div>

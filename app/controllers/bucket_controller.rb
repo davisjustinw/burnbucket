@@ -33,7 +33,7 @@ class BucketController < ApplicationController
     if Helpers.is_logged_in?(session)
 
       @user = User.find(session[:user_id])
-      params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit]
+      params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit].singularize
       @user.buckets.create(params[:bucket])
       redirect '/journal'
     else
