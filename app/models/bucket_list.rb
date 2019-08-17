@@ -6,6 +6,8 @@ class BucketList < ActiveRecord::Base
 
   has_many :buckets
   has_many :moments, through: :buckets
+  has_many :units, -> { distinct }, through: :buckets
+  
 
   def sum
     moments.sum "value"

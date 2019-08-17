@@ -1,10 +1,5 @@
-<% if flash.has?(:messages) %>
-<ul>
-  <% flash[:messages].each do |message| %>
-    <li><%= message.first %> - <%= message.flatten.last %></li>
-  <% end %>
-</ul>
-
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
 <% end %>
 
 <form action="/bucket_lists/<%=@bucket_list.id%>" method="post">
