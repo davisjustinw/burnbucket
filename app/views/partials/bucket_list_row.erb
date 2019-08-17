@@ -2,7 +2,7 @@
 <div>
   <% ratio = bucket_list.ratio %>
   <% if ratio %>
-  <%= ratio[:max][:ratio] %> <%= ratio[:max][:name] %> per <%= ratio[:min][:name] %>
+  <%= ratio[:max][:ratio].round(2) %> <%= ratio[:max][:name].pluralize(ratio[:max][:ratio]) %> per <%= ratio[:min][:name] %>
   <% end %>
 </div>
 <% bucket_list.buckets.each do |bucket| %>
