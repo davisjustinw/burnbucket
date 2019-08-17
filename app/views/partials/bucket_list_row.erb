@@ -1,8 +1,10 @@
-<h3><a href="/bucket_lists/edit/<%= bucket_list.id %>"><%= bucket_list.name %> - <%= bucket_list.sum %></a></h3>
+<h3><a href="/bucket_lists/edit/<%= bucket_list.id %>"><%= bucket_list.name %></a></h3>
 <div>
   <% ratio = bucket_list.ratio %>
   <% if ratio %>
   <%= ratio[:max][:ratio].round(2) %> <%= ratio[:max][:name].pluralize(ratio[:max][:ratio]) %> per <%= ratio[:min][:name] %>
+  <% else %>
+  <%= bucket_list.sum %> <%= bucket_list.buckets.first.unit.name.pluralize(bucket_list.sum) %>
   <% end %>
 </div>
 <% bucket_list.buckets.each do |bucket| %>
