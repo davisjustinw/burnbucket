@@ -1,4 +1,4 @@
-<h3><a href="/bucket_lists/edit/<%= bucket_list.id %>"><%= bucket_list.name %></a></h3>
+<h3><a href="/bucket_lists/edit/<%= bucket_list.id %>"><%= bucket_list.name %> - <%= bucket_list.sum %></a></h3>
 <% bucket_list.buckets.each do |bucket| %>
   <div class="burn_row">
     <div class="first"><%= bucket.name %></div>

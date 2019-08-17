@@ -115,12 +115,21 @@
 - fix bucket sum
 - add value and bucket to journal entry
 
-# Backlog
+
+## Aug 17
 
 - add date time to journal entry
+- add action (ratio sum)
+-- add validation for 2 max unit types
+-- it two units ratio is calculated
+
+# Backlog
+
+
+
 - functions
 - nest bucket ?
-- add action (ratio sum)
+
 
 
 
