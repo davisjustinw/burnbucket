@@ -134,6 +134,8 @@
 - validation sweep
 - comment and clean
 - bucket name uniqueness validation
+- timestamp journal entries
+- counter page
 
 
 # Backlog

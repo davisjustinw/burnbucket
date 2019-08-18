@@ -1,6 +1,7 @@
 <div class="journal_row">
   <div class="name"><%= moment.bucket.name %></div>
   <div class="memo"><%= moment.memo %></div>
+  <% if moment.value %>
   <% if moment.value.negative? %>
     <div class="credit">
   <% else %>
@@ -9,4 +10,5 @@
 
       <%= moment.value %> <%=  moment.bucket.unit.name.pluralize(moment.value) %>
     </div>
+    <% end %>
 </div>
