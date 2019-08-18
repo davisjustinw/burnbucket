@@ -5,7 +5,7 @@
 <form action="/moments/<%=@moment.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <input type="text" id="moment_value" name="moment[value]" value="<%=@moment.value%>" >
+  <input type="text" id="moment_value" name="moment[value]" <% if @moment.value %>value="<%=@moment.value%>"<%else%>placeholder="value" <%end%> >
 
   <input type="text" id="moment_note" name="moment[memo]" value="<%=@moment.memo%>" required>
 
