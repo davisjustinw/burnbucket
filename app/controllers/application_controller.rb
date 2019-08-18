@@ -10,17 +10,14 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
-
   get "/" do
     erb :index
   end
 
   get '/signup' do
-    if Helpers.is_logged_in?(session)
-      redirect '/logout'
-    else
-      erb :'users/create_user'
-    end
+
+    session.clear if Helpers.is_logged_in?(session)
+    erb :'users/create_user'
   end
 
   post '/signup' do
@@ -40,7 +37,6 @@ class ApplicationController < Sinatra::Base
   get '/login' do
     @users = User.all
     if Helpers.is_logged_in?(session)
-      binding.pry
       redirect '/journal'
     else
       erb :'users/login'

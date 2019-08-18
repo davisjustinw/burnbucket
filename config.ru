@@ -9,5 +9,4 @@ use MomentController
 use BucketListController
 use BucketController
 use JournalController
-use UserController
 run ApplicationController

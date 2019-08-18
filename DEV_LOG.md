@@ -132,16 +132,14 @@
 - fix edit routes to convention
 - add placeholder logic to edit pages
 - Delete behavior
-
-
 - bucket name uniqueness validation
-
-
 - sorting
+- edit user and delete
+
+- fix session bug
+
 - layout sweep
 -- hover behavior on form controls
-- fix session bug
-- edit user and delete
 - validation sweep
 - comment and clean
 
