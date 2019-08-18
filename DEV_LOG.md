@@ -123,64 +123,22 @@
 -- add validation for 2 max unit types
 -- it two units ratio is calculated
 
+## Aug 18
+- Delete behavior
+- edits pages
+- sorting
+- layout sweep
+- numberless entry
+- unitless bucket?
+- fix session bug
+- validation sweep
+- comment and clean
+- bucket name uniqueness validation
+
+
 # Backlog
 
-
-
-- functions
-- nest bucket ?
-
-
-
-
-
-
-
-- evaluate unit sums after model change
-- Journal Model 2 moments and a time stamp
-- each journal entry is one unit type
-- Journal format
-- memo in journal entry?
-
-Year
-month day debit account   debit amount
-             credit account            credit amt
-          (memo)
-
-
-
-      day
-
-
-- traditional form instead of queue box
-- change potential to integer to clean up code
-
-- not working without a hashtag
-- how to create a null unit.
-- display bucket journal
-- if no units on during quick entry, if only one unit use that
-- if no numbers makes a named entry
-- use @bucket for bucket naming
-- slug bucket names
-- slug hashtags?
-
-- create journal mechanism on main page.
-- individual buckets aren't editable
-
-
-- add logout to header remove from footer
-- add quick moment input in buckets route
-- add balanccing function
-- layout
-- ratio in junction bucket
-- non-amount moment balance
-- protect against user called buckets
-- make logout link in layout login sensitive
-- investigate require_all vs explicit require in app/config/environment
--- may be due alphabetical order?
-- validate uniqueness of bucket name within user's buckets
-- clock in
-- github integration
+- many to many for bucket and bucketlist
 
 # Blog
 - code like you'll return

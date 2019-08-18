@@ -6,7 +6,7 @@ class JournalController < ApplicationController
         @user = User.find session[:user_id]
         @bucket_lists = @user.bucket_lists.select{|bl| true}
         @bucket_lists.sort_by!{|bucket_list| bucket_list[:name].downcase}
-        #binding.pry
+
 
         @buckets = @user.buckets
         @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
