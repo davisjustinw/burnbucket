@@ -38,4 +38,10 @@ class BucketList < ActiveRecord::Base
     ratio_hash
   end
 
+  def unit
+    if units.size > 1
+      units.first.name
+    end
+  end
+
 end

@@ -4,11 +4,13 @@ class JournalController < ApplicationController
     if Helpers.is_logged_in? session
       if User.exists? session[:user_id]
         @user = User.find session[:user_id]
-        @bucket_lists = @user.bucket_lists
+        @bucket_lists = @user.bucket_lists.select{|bl| true}
+        @bucket_lists.sort_by!{|bucket_list| bucket_list[:name].downcase}
+        #binding.pry
 
         @buckets = @user.buckets
         @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
-        @free_buckets.sort_by!(&:name)
+        @free_buckets.sort_by!{|bucket| bucket[:name].downcase}
 
         @moments = @user.moments
         #binding.pry
