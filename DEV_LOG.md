@@ -124,16 +124,22 @@
 -- it two units ratio is calculated
 
 ## Aug 18
-- Delete behavior
-- edits pages
-- sorting
-- layout sweep
 - numberless entry
 - unitless bucket?
+
+- edits pages
+-- bucket
+-- journal entry
+- Delete behavior
+- bucket name uniqueness validation
+
+
+- sorting
+- layout sweep
 - fix session bug
 - validation sweep
 - comment and clean
-- bucket name uniqueness validation
+
 - timestamp journal entries
 - counter page
 
@@ -145,3 +151,7 @@
 # Blog
 - code like you'll return
 - sometimes you have to break the spin
+- small wins
+- make the engine to the honda
+- is the time spent spinning taking from the time your app will live
+- don't lose sight of the goal, when stories break down this will get you on track

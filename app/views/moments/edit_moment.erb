@@ -1,0 +1,20 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<form action="/moments/<%=@moment.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <input type="text" id="moment_value" name="moment[value]" value="<%=@moment.value%>" >
+
+  <input type="text" id="moment_note" name="moment[memo]" value="<%=@moment.memo%>" required>
+
+  <select name="moment[bucket]" required>
+    <% @buckets.each do |bucket| %>
+      <option <% if bucket.id == @moment.bucket.id %>Selected<%end%> value="<%=bucket.id%>"><%= bucket.name %></option>
+    <% end %>
+  </select>
+
+
+  <button type="submit" id="moment_edit" name="function" value="submit">submit</button>
+</form>
