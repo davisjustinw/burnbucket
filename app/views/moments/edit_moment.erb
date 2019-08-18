@@ -18,3 +18,8 @@
 
   <button type="submit" id="moment_edit" name="function" value="submit">submit</button>
 </form>
+
+<form method="post" action="/moments/<%= @moment.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>

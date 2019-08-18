@@ -36,7 +36,22 @@ class MomentController < ApplicationController
     else
       redirect '/login'
     end
+  end
 
+  delete '/moments/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find(session[:user_id])
+      if @user.moments.exists?(params[:id])
+        @moment = Moment.find(params[:id])
+        @moment.destroy
+        redirect '/journal'
+      else
+        flash[:message] = "You do not have permission to edit this moment or it does not exist"
+        redirect '/journal'
+      end
+    else
+      redirect '/login'
+    end
 
   end
 
