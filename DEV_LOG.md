@@ -126,10 +126,11 @@
 ## Aug 18
 - numberless entry
 - unitless bucket?
-
 - edits pages
--- bucket
 -- journal entry
+
+-- bucket
+
 - Delete behavior
 - bucket name uniqueness validation
 

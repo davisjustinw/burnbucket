@@ -1,0 +1,18 @@
+
+<% if flash.has?(:messages) %>
+<ul>
+  <% flash[:messages].each do |message| %>
+    <li><%= message.first %> - <%= message.flatten.last %></li>
+  <% end %>
+</ul>
+
+<% end %>
+
+<form action="/buckets/<%=@bucket.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <input type="text" name="bucket[name]" value="<%= @bucket.name %>">
+  <input type="text" name="bucket[size]" value="<%= @bucket.size %>">
+  <input type="text" name="bucket[unit]" value="<%= @bucket.unit.name %>">
+  <input type="submit" name="submit">
+</form>

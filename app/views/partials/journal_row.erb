@@ -1,5 +1,5 @@
 <div class="journal_row">
-  <div class="name"><%= moment.bucket.name %></div>
+  <div class="name"><a href="/buckets/edit/<%= moment.bucket.id %>"><%= moment.bucket.name %></a></div>
   <div class="memo"><a href="/moments/edit/<%= moment.id %>"><%= moment.memo %></a></div>
   <% if moment.value %>
   <% if moment.value.negative? %>

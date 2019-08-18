@@ -1,23 +1,6 @@
 
 class BucketController < ApplicationController
 
-  get '/buckets' do
-    if Helpers.is_logged_in? session
-      if User.exists? session[:user_id]
-        @user = User.find session[:user_id]
-        @buckets = @user.buckets
-        @moments = @user.moments
-
-        erb :'buckets/buckets'
-      else
-        redirect '/logout'
-      end
-    else
-      redirect '/login'
-    end
-  end
-
-
   get '/buckets/new' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
@@ -41,13 +24,12 @@ class BucketController < ApplicationController
     end
   end
 
-  get '/buckets/:slug/edit' do
+  get '/buckets/edit/:id' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
-      @bucket = @user.buckets.find_by_slug params[:slug]
 
-      if @bucket
-        @moments = @bucket.moments
+      if @user.buckets.exists? params[:id]
+        @bucket = @user.buckets.find params[:id]
         erb :'buckets/edit_bucket'
       else
         flash[:message] = "You do not have permission to edit this bucket or it does not exist"
@@ -58,51 +40,29 @@ class BucketController < ApplicationController
     end
   end
 
-  get '/buckets/:slug' do
-    if Helpers.is_logged_in?(session)
-      @user = User.find(session[:user_id])
-      @bucket = @user.buckets.find_by_slug params[:slug]
-
-      if @bucket
-        @moments = @bucket.moments
-        erb :'buckets/show_bucket'
-      else
-        flash[:message] = "You don't have permission to view this bucket #{params[:slug]}, or it does't exist"
-        redirect '/buckets'
-      end
-    else
-      redirect '/login'
-    end
-  end
-
-
-
   patch '/buckets/:id' do
     if Helpers.is_logged_in?(session)
         @user = User.find(session[:user_id])
+
         if @user.buckets.exists?(params[:id])
           @bucket = Bucket.find(params[:id])
-          @bucket.update(params[:bucket])
 
-          #update moments
-        if params[:moments]
-          binding.pry
-          params[:moments].each do |moment|
-            moment[:unit] = Unit.find_or_create_by(name: moment[:unit])
-            @bucket.moments.find(moment[:id]).update(moment)
-          end
-        end
-
-          #add new moment
-          if !params[:new_moment].empty?
-            params[:new_moment][:unit] = Unit.find_or_create_by(name: params[:new_unit][:name])
-            @bucket.moments.create(params[:new_moment])
+          if !params[:bucket][:unit].empty?
+            params[:bucket][:unit] = Unit.find(params[:bucket][:unit])
+            @bucket.update(params[:bucket])
+          else
+            params[:bucket].delete :unit
+            @bucket.update(params[:bucket])
+            @bucket.unit = nil
+            @bucket.save
           end
 
-          redirect "buckets/#{@bucket.id}"
+
+
+          redirect "/journal"
         else
           flash[:message] = "You do not have permission to edit this bucket or it does not exist"
-          redirect '/buckets'
+          redirect '/journal'
         end
     else
       redirect '/login'
@@ -115,9 +75,9 @@ class BucketController < ApplicationController
       if @user.buckets.exists?(params[:id])
         @bucket = Bucket.find(params[:id])
         @bucket.destroy
-        redirect '/buckets'
+        redirect '/journal'
       else
-        redirect '/buckets'
+        redirect '/journal'
       end
     else
       redirect '/login'

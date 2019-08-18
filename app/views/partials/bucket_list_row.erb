@@ -11,7 +11,7 @@
 </div>
 <% bucket_list.buckets.each do |bucket| %>
   <div class="burn_row">
-    <div class="first"><%= bucket.name %></div>
+    <div class="first"><a href="/buckets/edit/<%= bucket.id %>"><%= bucket.name %></a></div>
     <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name.pluralize(bucket.size) %></div>
   </div>
 <% end %>
