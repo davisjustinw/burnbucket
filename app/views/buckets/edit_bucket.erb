@@ -17,3 +17,7 @@
   <input type="text" name="bucket[unit]" <% if !@bucket.unit %>placeholder="unit" <%else%> value="<%= @bucket.unit.name.pluralize(size_holder) %>"<%end%>>
   <input type="submit" name="submit">
 </form>
+<form method="post" action="/buckets/<%= @bucket.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Bucket">
+</form>

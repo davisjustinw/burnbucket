@@ -130,8 +130,10 @@
 -- journal entry
 -- bucket
 - fix edit routes to convention
-
+- add placeholder logic to edit pages
 - Delete behavior
+
+
 - bucket name uniqueness validation
 
 

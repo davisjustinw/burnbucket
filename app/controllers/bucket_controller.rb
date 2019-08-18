@@ -78,6 +78,7 @@ class BucketController < ApplicationController
         @bucket.destroy
         redirect '/journal'
       else
+        flash[:message] = "You do not have permission to edit this bucket or it does not exist"
         redirect '/journal'
       end
     else
