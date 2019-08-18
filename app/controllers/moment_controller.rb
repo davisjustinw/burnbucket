@@ -1,6 +1,6 @@
 class MomentController < ApplicationController
 
-  get '/moments/edit/:id' do
+  get '/moments/:id/edit' do
 
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])

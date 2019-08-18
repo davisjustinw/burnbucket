@@ -27,7 +27,7 @@ class BucketListController < ApplicationController
     end
   end
 
-  get '/bucket_lists/edit/:id' do
+  get '/bucket_lists/:id/edit' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
       @buckets = @user.buckets

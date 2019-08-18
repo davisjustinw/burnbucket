@@ -1,4 +1,4 @@
-<h3><a href="/bucket_lists/edit/<%= bucket_list.id %>"><%= bucket_list.name %></a></h3>
+<h3><a href="/bucket_lists/<%= bucket_list.id %>/edit"><%= bucket_list.name %></a></h3>
 <div>
   <% ratio = bucket_list.ratio %>
   <% if ratio %>
@@ -11,7 +11,7 @@
 </div>
 <% bucket_list.buckets.each do |bucket| %>
   <div class="burn_row">
-    <div class="first"><a href="/buckets/edit/<%= bucket.id %>"><%= bucket.name %></a></div>
+    <div class="first"><a href="/buckets/<%= bucket.id %>/edit"><%= bucket.name %></a></div>
     <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name.pluralize(bucket.size) %></div>
   </div>
 <% end %>

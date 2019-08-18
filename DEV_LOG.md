@@ -128,8 +128,8 @@
 - unitless bucket?
 - edits pages
 -- journal entry
-
 -- bucket
+- fix edit routes to convention
 
 - Delete behavior
 - bucket name uniqueness validation

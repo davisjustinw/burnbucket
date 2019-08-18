@@ -24,12 +24,14 @@ class BucketController < ApplicationController
     end
   end
 
-  get '/buckets/edit/:id' do
+  get '/buckets/:id/edit' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
 
       if @user.buckets.exists? params[:id]
         @bucket = @user.buckets.find params[:id]
+        #binding.pry
+
         erb :'buckets/edit_bucket'
       else
         flash[:message] = "You do not have permission to edit this bucket or it does not exist"
@@ -56,8 +58,6 @@ class BucketController < ApplicationController
             @bucket.unit = nil
             @bucket.save
           end
-
-
 
           redirect "/journal"
         else

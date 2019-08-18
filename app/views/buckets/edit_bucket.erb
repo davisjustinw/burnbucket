@@ -13,6 +13,6 @@
 
   <input type="text" name="bucket[name]" value="<%= @bucket.name %>">
   <input type="text" name="bucket[size]" value="<%= @bucket.size %>">
-  <input type="text" name="bucket[unit]" value="<%= @bucket.unit.name %>">
+  <input type="text" name="bucket[unit]" <% if !@bucket.unit %>placeholder="unit" <%else%> value="<%= @bucket.unit.name %>"  <%end%>>
   <input type="submit" name="submit">
 </form>
