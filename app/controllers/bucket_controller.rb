@@ -1,6 +1,6 @@
 
 class BucketController < ApplicationController
-
+  use Rack::Flash
   get '/buckets/new' do
     if Helpers.is_logged_in?(session)
       @user = User.find(session[:user_id])
@@ -13,12 +13,20 @@ class BucketController < ApplicationController
   end
 
   post '/buckets' do
+
     if Helpers.is_logged_in?(session)
 
       @user = User.find(session[:user_id])
       params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit].singularize
-      @user.buckets.create(params[:bucket])
-      redirect '/journal'
+      @bucket = Bucket.new(params[:bucket])
+
+      if @bucket.valid?
+        @user.buckets << @bucket
+        redirect '/journal'
+      else
+        flash[:messages] = @bucket.errors.messages
+        redirect '/buckets/new'
+      end
     else
       redirect '/login'
     end

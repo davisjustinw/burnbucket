@@ -11,6 +11,7 @@ class MomentController < ApplicationController
         erb :'moments/edit_moment'
       else
         flash[:message] = "You don't have persmission to edit this moment or it doesn't exist"
+        binding.pry
         redirect '/journal'
       end
     else
