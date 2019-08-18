@@ -2,6 +2,6 @@
 
 <div class="burn_row">
   <div class="first"><a href="/buckets/<%= bucket.id %>/edit"><%= bucket.name %></a></div>
-  <div><% if bucket.unit %><%= bucket.sum %><%end%><% if bucket.size %> of <%= bucket.size %><% end %> <% if bucket.unit %><%= bucket.unit.name.pluralize(bucket.size) %><%end%></div>
+  <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <% if bucket.unit %><%= bucket.unit.name.pluralize(bucket.size) %><%end%></div>
 
 </div>

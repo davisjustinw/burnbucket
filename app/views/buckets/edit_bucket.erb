@@ -12,7 +12,8 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <input type="text" name="bucket[name]" value="<%= @bucket.name %>">
-  <input type="text" name="bucket[size]" value="<%= @bucket.size %>">
-  <input type="text" name="bucket[unit]" <% if !@bucket.unit %>placeholder="unit" <%else%> value="<%= @bucket.unit.name %>"  <%end%>>
+  <input type="text" name="bucket[size]" <% if !@bucket.size %>placeholder="size" <%else%> value="<%= @bucket.size %>"<%end%>>
+  <% @bucket.size ? size_holder = @bucket.size : size_holder = 2 %>
+  <input type="text" name="bucket[unit]" <% if !@bucket.unit %>placeholder="unit" <%else%> value="<%= @bucket.unit.name.pluralize(size_holder) %>"<%end%>>
   <input type="submit" name="submit">
 </form>

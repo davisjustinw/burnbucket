@@ -50,7 +50,8 @@ class BucketController < ApplicationController
           @bucket = Bucket.find(params[:id])
 
           if !params[:bucket][:unit].empty?
-            params[:bucket][:unit] = Unit.find(params[:bucket][:unit])
+
+            params[:bucket][:unit] = Unit.find_or_create_by(name: params[:bucket][:unit].singularize)
             @bucket.update(params[:bucket])
           else
             params[:bucket].delete :unit
