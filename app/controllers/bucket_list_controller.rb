@@ -65,7 +65,22 @@ class BucketListController < ApplicationController
     end
   end
 
+  delete '/bucket_lists/:id' do
+    if Helpers.is_logged_in?(session)
+      @user = User.find(session[:user_id])
+      if @user.bucket_lists.exists?(params[:id])
+        @bucket_list = BucketList.find(params[:id])
+        @bucket_list.destroy
+        redirect '/journal'
+      else
+        flash[:message] = "You do not have permission to edit this bucket_list or it does not exist"
+        redirect '/journal'
+      end
+    else
+      redirect '/login'
+    end
 
+  end
 
 
 

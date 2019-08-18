@@ -139,7 +139,9 @@
 
 - sorting
 - layout sweep
+-- hover behavior on form controls
 - fix session bug
+- edit user and delete
 - validation sweep
 - comment and clean
 

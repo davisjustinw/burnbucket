@@ -20,3 +20,7 @@
 
   <input type="submit" name="submit">
 </form>
+<form method="post" action="/bucket_lists/<%= @bucket_list.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Bucket_List">
+</form>
