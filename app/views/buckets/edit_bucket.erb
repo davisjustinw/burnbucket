@@ -1,4 +1,4 @@
-
+<main id="form_content">
 <% if flash.has?(:messages) %>
 <ul>
   <% flash[:messages].each do |message| %>
@@ -15,9 +15,10 @@
   <input type="text" name="bucket[size]" <% if !@bucket.size %>placeholder="size" <%else%> value="<%= @bucket.size %>"<%end%>>
   <% @bucket.size ? size_holder = @bucket.size : size_holder = 2 %>
   <input type="text" name="bucket[unit]" <% if !@bucket.unit %>placeholder="unit" <%else%> value="<%= @bucket.unit.name.pluralize(size_holder) %>"<%end%>>
-  <input type="submit" name="submit">
+  <button type="submit">submit</button>
 </form>
 <form method="post" action="/buckets/<%= @bucket.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
+  <button type="submit">delete</button>
 </form>
+</main>

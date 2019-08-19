@@ -1,0 +1,37 @@
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Courier', monospace;
+  font-size: 1em;
+  color: black;
+  background-color: lightgray;
+}
+
+header, footer {
+  padding: 0em 2em;
+}
+
+
+#layout_wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+}
+
+header {
+  grid-area: header;
+  border-bottom: 10px solid slategray;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+main {
+  grid-area: main;
+  padding: 2em;
+}

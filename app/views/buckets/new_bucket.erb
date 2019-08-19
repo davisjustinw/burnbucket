@@ -1,6 +1,6 @@
-<%= erb :'partials/bucket_breadcrumb' %>
 
 
+<main id="form_content">
 <% if flash.has?(:messages) %>
 <ul>
   <% flash[:messages].each do |message| %>
@@ -14,5 +14,6 @@
   <input type="text" name="bucket[name]" placeholder="name">
   <input type="text" name="bucket[size]" placeholder="size">
   <input type="text" name="bucket[unit]" placeholder="unit">
-  <input type="submit" name="submit">
+  <button type="submit">submit</button>
 </form>
+</main>

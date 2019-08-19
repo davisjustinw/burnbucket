@@ -28,6 +28,7 @@ class MomentController < ApplicationController
         @moment = Moment.find(params[:id])
 
         params[:moment][:bucket] = Bucket.find(params[:moment][:bucket])
+        params[:moment][:timestamp] = Time.now
         @moment.update(params[:moment])
 
       else

@@ -135,12 +135,18 @@
 - bucket name uniqueness validation
 - sorting
 - edit user and delete
-
 - fix session bug
 
 - layout sweep
 -- hover behavior on form controls
+-- journal row
+-- bucketlist row
+-- bucket row
+-- bucket_lists edit if empty no catch
+
+
 - validation sweep
+
 - comment and clean
 
 - timestamp journal entries

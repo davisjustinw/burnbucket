@@ -1,4 +1,5 @@
 <div class="journal_row">
+  <!-- <div class="timestamp"><%= moment.timestamp.strftime("%d %b %Y") %></div> -->
   <div class="name"><a href="/buckets/<%= moment.bucket.id %>/edit"><%= moment.bucket.name %></a></div>
   <div class="memo"><a href="/moments/<%= moment.id %>/edit"><%= moment.memo %></a></div>
   <% if moment.value %>

@@ -13,12 +13,29 @@
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/layout.css" />
+    <link rel="stylesheet" href="/stylesheets/journal.css" />
+    <link rel="stylesheet" href="/stylesheets/simple_form.css" />
   </head>
   <body>
+    <div id="layout_wrapper">
+      <header>
+        <div id="user_caption">
+          <h1><%= @user.username %>'s buckets</h1>
+        </div>
+        <div class="message">
+          <% if flash.has?(:message) %>
+            <%= flash[:message]%>
+          <% end %>
+        </div>
+        <div id="logout">
+          <a href="/logout">logout</a>
+        </div>
 
-        <%= yield %>
-  
+      </header>
+      <%= yield %>
 
+    </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>

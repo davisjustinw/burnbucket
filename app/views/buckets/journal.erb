@@ -1,21 +1,6 @@
 
 <form action="/journal" method="post">
-  <div id="grid_wrapper">
-
-    <header>
-      <div id="user_caption">
-        <h1><%= @user.username %>'s buckets</h1>
-      </div>
-      <div class="message">
-        <% if flash.has?(:message) %>
-          <%= flash[:message]%>
-        <% end %>
-      </div>
-      <div id="logout">
-        <a href="/logout">logout</a>
-      </div>
-
-    </header>
+  <main id="journal_content">
 
     <section id="form_control">
       <input type="text" id="moment_value" name="moment[value]" placeholder="value" >
@@ -49,8 +34,6 @@
 
     </section>
 
-
-
       <section id="journal">
         <h2>journal</h2>
 
@@ -61,10 +44,5 @@
       </section>
 
 
-
-
-    <footer>
-      <p><small>&copy; 2019 <strong>burnbucket</strong></small></p>
-    </footer>
-  </div>
+  </main>
 </form>

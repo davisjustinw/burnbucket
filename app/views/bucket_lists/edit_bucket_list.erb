@@ -1,26 +1,34 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<main id="form_content">
 
-<form action="/bucket_lists/<%=@bucket_list.id%>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+    <form action="/bucket_lists/<%=@bucket_list.id%>" method="post">
 
-  <input type="text" name="bucket_list[name]" value="<%=@bucket_list.name%>">
+        <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <% @buckets.each do |bucket| %>
-    <div class="toggle">
-      <input type="checkbox" id="bucket_<%= bucket.id %>" name="buckets[]" value="<%= bucket.id %>" <%='checked' if @bucket_list.buckets.include?(bucket) %>>
-      <label for="bucket_<%= bucket.id %>">
+        <input type="text" name="bucket_list[name]" value="<%=@bucket_list.name%>">
 
-        <%= bucket.name %>
+        <% @buckets.each do |bucket| %>
+          <div>
+            <input type="checkbox" id="bucket_<%= bucket.id %>" name="buckets[]" value="<%= bucket.id %>" <%='checked' if @bucket_list.buckets.include?(bucket) %>>
+            <label for="bucket_<%= bucket.id %>">
 
-      </label>
-    </div>
-  <% end %>
+              <%= bucket.name %>
 
-  <input type="submit" name="submit">
-</form>
-<form method="post" action="/bucket_lists/<%= @bucket_list.id %>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
-</form>
+            </label>
+          </div>
+
+
+        <% end %>
+
+      <button type="submit" id="submit_button" name="function" value="submit">submit</button>
+
+    </form>
+
+
+
+    <form method="post" action="/bucket_lists/<%= @bucket_list.id %>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit" id="delete_button" name="function" value="delete">delete</button>
+    </form>
+
+
+</main>

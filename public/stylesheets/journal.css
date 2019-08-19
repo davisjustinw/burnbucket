@@ -1,0 +1,76 @@
+
+
+
+
+  #journal_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "form_control form_control"
+      "journal buckets"
+  }
+  #journal {
+    grid-area: journal;
+  }
+
+  #buckets {
+    grid-area: buckets;
+  }
+
+  #form_control {
+    grid-area: form_control;
+    display: flex;
+    justify-content: center;
+    flex-basis: 0;
+  }
+
+  #form_control * {
+    flex-grow: 1;
+  }
+
+  #moment_note {
+    flex-grow: 4;
+  }
+
+
+  .journal_row {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-areas:
+      "name debit credit"
+      "memo memo memo";
+      padding-top: 1em;
+  }
+
+  .timestamp {
+    grid-area: timestamp;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .memo {
+    grid-area: memo;
+    padding-left: 2em;
+  }
+
+  .credit {
+    grid-area: credit;
+    justify-self: end;
+  }
+
+  .debit {
+    grid-area: debit;
+    justify-self: end;
+  }
+
+  .burn_row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: end;
+  }
+
+  .first {
+    justify-self: start;
+  }
