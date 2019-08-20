@@ -164,3 +164,4 @@
 - make the engine to the honda
 - is the time spent spinning taking from the time your app will live
 - don't lose sight of the goal, when stories break down this will get you on track
+- think about layout first

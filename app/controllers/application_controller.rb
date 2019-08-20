@@ -11,7 +11,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    @users = User.all
+    if Helpers.is_logged_in?(session)
+      redirect '/journal'
+    else
+      erb :'index'
+    end
   end
 
   get '/signup' do

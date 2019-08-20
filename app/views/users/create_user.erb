@@ -1,4 +1,5 @@
-<h1>Sign Up</h1>
+<main id="form_content">
+<h2>Sign Up</h2>
 <% if flash.has?(:messages) %>
 <ul>
   <% flash[:messages].each do |message| %>
@@ -9,13 +10,14 @@
 <% end %>
 <form action="/signup" method="post">
   <label for="username">User Name</label>
-  <input type="text" name="username">
+  <input type="text" name="username" placeholder="username">
 
   <label for="email">Email</label>
-  <input type="text" name="email">
+  <input type="text" name="email" placeholder="email">
 
   <label for="password">Password</label>
-  <input type="text" name="password">
+  <input type="text" name="password" placeholder="password">
 
-  <input type="submit" name="submit">
+  <button type="submit">submit</button>
 </form>
+</main>

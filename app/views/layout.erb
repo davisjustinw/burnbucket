@@ -22,9 +22,9 @@
       <header>
         <div id="user_caption">
           <% if @user %>
-          <h1><%= @user.username %>'s buckets</h1>
+          <h1><a href="/"><%= @user.username %>'s buckets</a></h1>
           <% else %>
-          <h1>burnbucket</h1>
+          <h1><a href="/">burnbucket</a></h1>
           <% end %>
         </div>
         <div class="message">

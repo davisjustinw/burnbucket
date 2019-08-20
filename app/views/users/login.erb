@@ -1,14 +1,12 @@
-<h1>Login</h1>
-<a class="button" href="/">Home</a>
-<% @users.each do |user| %>
-  <p><%= user.username %>, <%=user.email%></p>
-<% end %>
-<form action="/login" method="post">
-  <label for="username">User Name</label>
-  <input type="text" id="username" name="username">
+<main id="form_content">
+  <h2>Login</h2>
+  <form action="/login" method="post">
 
-  <label for="password">Password</label>
-  <input type="text" id="password" name="password">
+    <input type="text" id="username" name="username" placeholder="username">
 
-  <input type="submit" id="submit" name="submit">
-</form>
+
+    <input type="text" id="password" name="password" placeholder="password">
+
+    <button type="submit">submit</button>
+  </form>
+</main>

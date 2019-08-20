@@ -19,13 +19,13 @@
 
     <section id="buckets">
 
-      <h2>Buckets <a href="buckets/new">+</a></h2>
+      <h2>Buckets <span class="bucket"><a href="buckets/new">(add)</a></span></h2>
 
       <% @free_buckets.each do |bucket| %>
         <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
       <% end %>
 
-      <h2>Bucketlists <a href="bucket_lists/new">+</a></h2>
+      <h2>Bucketlists <span class="bucket"><a href="bucket_lists/new">(add)</a></span></h2>
 
       <% @bucket_lists.each do |bucket_list| %>
         <%= erb :'partials/bucket_list_row', :layout => false, :locals => {:bucket_list => bucket_list} %>
