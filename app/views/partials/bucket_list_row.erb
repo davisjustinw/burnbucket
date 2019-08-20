@@ -1,6 +1,8 @@
-<h3><a href="/bucket_lists/<%= bucket_list.id %>/edit"><%= bucket_list.name %></a></h3>
 
-<div>
+<div class="bucket_list_title">
+  <a href="/bucket_lists/<%= bucket_list.id %>/edit"><%= bucket_list.name %></a>
+  </div>
+<div class="bucket_list_subtitle">
   <% ratio = bucket_list.ratio %>
   <% if ratio %>
   <%= ratio[:max][:ratio].round(2) %> <%= ratio[:max][:name].pluralize(ratio[:max][:ratio]) %> per <%= ratio[:min][:name] %>
@@ -10,9 +12,8 @@
     empty
   <% end %>
 </div>
+
+
 <% bucket_list.buckets.each do |bucket| %>
-  <div class="burn_row">
-    <div class="first"><a href="/buckets/<%= bucket.id %>/edit"><%= bucket.name %></a></div>
-    <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <%= bucket.unit.name.pluralize(bucket.size) %></div>
-  </div>
+  <%= erb :'partials/bucket_row', :layout => false, :locals => {:bucket => bucket} %>
 <% end %>

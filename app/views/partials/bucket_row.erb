@@ -1,7 +1,28 @@
 
+<a href="/buckets/<%= bucket.id %>/edit">
+<div class="journal_entry">
 
-<div class="burn_row">
-  <div class="first"><a href="/buckets/<%= bucket.id %>/edit"><%= bucket.name %></a></div>
-  <div><%= bucket.sum %><% if bucket.size %> of <%= bucket.size %><% end %> <% if bucket.unit %><%= bucket.unit.name.pluralize(bucket.size) %><%end%></div>
+  <div class="journal_row">
+    <div class="memo">
+      <%= bucket.name %>
+    </div>
+    <% if bucket.sum %><% if bucket.sum.negative? %>
+      <div class="value negative">
+    <% else %>
+      <div class="value positive"><% end %>
+        <%= bucket.sum %><% if bucket.size %> / <%= bucket.size %><% end %>
+      </div>
+    <% end %>
 
+  </div>
+
+  <div class="journal_row">
+    <div class="timestamp">
+
+    </div>
+    <div class="units">
+      <% if bucket.unit %><%= bucket.unit.name.pluralize(bucket.size) %><%end%>
+    </div>
+  </div>
 </div>
+</a>

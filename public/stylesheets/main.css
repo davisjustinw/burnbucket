@@ -1,6 +1,9 @@
 
   h2 {
-    text-decoration: underline;
+
+    font-size: 125%;
+    font-weight: bold;
+
   }
 
   button[type=submit], a, a:visited {
@@ -11,19 +14,10 @@
     cursor: pointer;
     text-align: center;
     padding: .25em;
-    font-size: 1.5em;
-  }
-
-  a, a:visited {
-    border: none;
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-    cursor: pointer;
-    text-align: center;
-    padding: 0px;
     font-size: 1em;
   }
+
+
 
   button:hover, a:hover {
     color: slategray;

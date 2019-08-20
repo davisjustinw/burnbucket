@@ -32,45 +32,71 @@
     flex-grow: 4;
   }
 
-
+/**** Journal Entry ****/
+  .journal_entry {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5em;
+  }
   .journal_row {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
-    grid-template-areas:
-      "name debit credit"
-      "memo memo memo";
-      padding-top: 1em;
-  }
-
-  .timestamp {
-    grid-area: timestamp;
-  }
-
-  .name {
-    grid-area: name;
+    display: flex;
+    align-items: baseline;
+    justify-content: start;
+    padding-right: 1em;
+    text-align: left;
   }
 
   .memo {
-    grid-area: memo;
-    padding-left: 2em;
+    flex-basis: 75%;
   }
 
-  .credit {
-    grid-area: credit;
-    justify-self: end;
+  .bucket {
+    font-size: 85%;
+    color: slategray;
   }
 
-  .debit {
-    grid-area: debit;
-    justify-self: end;
+  .positive {
+    color: darkgreen;
+    flex-basis: 25%;
+    text-align: right;
+
   }
 
-  .burn_row {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    justify-items: end;
+  .negative {
+    color: darkred;
+    flex-basis: 25%;
+    text-align: right;
   }
 
-  .first {
-    justify-self: start;
+
+  .timestamp {
+    font-size: 75%;
+    flex-basis: 75%;
+    color: slategray;
   }
+
+
+  .units {
+    font-size: 75%;
+    flex-basis: 25%;
+    color: slategray;
+    text-align: right;
+  }
+
+
+/*** Burn Rows ***/
+
+  .bucket_list_title {
+    font-weight: bold;
+    font-size: 125%;
+
+  }
+
+  .bucket_list_subtitle {
+    font-size: 75%;
+    color: slategray;
+    border-bottom: 2px solid slategray;
+  }
+
+
+  

@@ -3,7 +3,8 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Courier', monospace;
+  /*font-family: 'Courier', monospace;*/
+  font-family: 'Arial',sans-serif;
   font-size: 1em;
   color: black;
   background-color: lightgray;

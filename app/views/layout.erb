@@ -21,16 +21,27 @@
     <div id="layout_wrapper">
       <header>
         <div id="user_caption">
+          <% if @user %>
           <h1><%= @user.username %>'s buckets</h1>
+          <% else %>
+          <h1>burnbucket</h1>
+          <% end %>
         </div>
         <div class="message">
           <% if flash.has?(:message) %>
             <%= flash[:message]%>
           <% end %>
         </div>
+        <% if Helpers.is_logged_in? session %>
         <div id="logout">
           <a href="/logout">logout</a>
         </div>
+        <% else %>
+        <div id="login">
+          <a href="/login">login</a>
+        </div>
+        <% end %>
+
 
       </header>
       <%= yield %>

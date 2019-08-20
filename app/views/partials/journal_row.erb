@@ -1,15 +1,31 @@
-<div class="journal_row">
-  <!-- <div class="timestamp"><%= moment.timestamp.strftime("%d %b %Y") %></div> -->
-  <div class="name"><a href="/buckets/<%= moment.bucket.id %>/edit"><%= moment.bucket.name %></a></div>
-  <div class="memo"><a href="/moments/<%= moment.id %>/edit"><%= moment.memo %></a></div>
-  <% if moment.value %>
-  <% if moment.value.negative? %>
-    <div class="credit">
-  <% else %>
-    <div class="debit">
-  <% end %>
+<a href="/moments/<%= moment.id %>/edit">
+<div class="journal_entry">
 
-      <%= moment.value %> <%=  moment.bucket.unit.name.pluralize(moment.value) %>
+  <div class="journal_row">
+
+    <div class="memo">
+      <%= moment.memo %> <span class="bucket">(<%= moment.bucket.name %>)</span>
     </div>
+
+    <% if moment.value %><% if moment.value.negative? %>
+      <div class="value negative">
+    <% else %>
+      <div class="value positive"><% end %>
+        <%= moment.value %>
+      </div>
     <% end %>
+
+  </div>
+
+  <div class="journal_row">
+    <div class="timestamp">
+      <%= moment.timestamp.strftime("%d %b %Y %H:%M") %>
+    </div>
+    <div class="units">
+      <%=  moment.bucket.unit.name.pluralize(moment.value) %>
+    </div>
+  </div>
+
+
 </div>
+</a>
