@@ -22,26 +22,24 @@ class BucketList < ActiveRecord::Base
 
   def ratio
     all_sums = all_sums_by_unit
-    #binding.pry
-    if !all_sums.empty?
 
+    if !all_sums.empty?
+      #grab the biggest and smallest sums
       max = all_sums.max {|a,b| a[:value] <=> b[:value]}
       min = all_sums.min {|a,b| a[:value] <=> b[:value]}
+
+      #more than one sum?
       if max != min
+        #calculate ratio for each
         max[:ratio] = min[:value] == 0 ? max[:value] : (max[:value] + 0.0) / min[:value]
         min[:ratio] = max[:value] == 0 ? min[:value] : (min[:value] + 0.0) / max[:value]
         ratio_hash = {max: max, min: min}
-        #binding.pry
+
       end
     end
 
     ratio_hash
   end
 
-  def unit
-    if units.size > 1
-      units.first.name
-    end
-  end
 
 end
