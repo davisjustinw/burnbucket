@@ -42,6 +42,7 @@ class MomentController < ApplicationController
 
   delete '/moments/:id' do
     if Helpers.is_logged_in?(session)
+      
       @user = User.find(session[:user_id])
       if @user.moments.exists?(params[:id])
         @moment = Moment.find(params[:id])

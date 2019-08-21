@@ -19,12 +19,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/signup' do
-
-    session.clear if Helpers.is_logged_in?(session)
-    erb :'users/create_user'
-  end
-
   post '/signup' do
 
     params.delete :submit
@@ -49,6 +43,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+
     @user = User.find_by username: params[:username]
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id

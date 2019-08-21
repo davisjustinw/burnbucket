@@ -2,18 +2,21 @@ class JournalController < ApplicationController
 
   get '/journal' do
     if Helpers.is_logged_in? session
+
       if User.exists? session[:user_id]
         @user = User.find session[:user_id]
+
+        # grab user's bucket lists.  Had to use select to make it sortable
         @bucket_lists = @user.bucket_lists.select{|bl| true}
         @bucket_lists.sort_by!{|bucket_list| bucket_list[:name].downcase}
 
-
+        # grab user's buckets.  Had to use select to make it sortable
         @buckets = @user.buckets
         @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
         @free_buckets.sort_by!{|bucket| bucket[:name].downcase}
 
         @moments = @user.moments
-        #binding.pry
+
         erb :'buckets/journal'
       else
         redirect '/logout'
