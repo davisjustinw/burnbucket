@@ -1,13 +1,6 @@
 <main id="form_content">
   <h2>New Bucketlist</h2>
-  <% if flash.has?(:messages) %>
-  <ul>
-    <% flash[:messages].each do |message| %>
-      <li><%= message.first %> - <%= message.flatten.last %></li>
-    <% end %>
-  </ul>
 
-  <% end %>
 
   <form action="/bucket_lists" method="post">
     <input type="text" name="bucket_list[name]" placeholder="name">

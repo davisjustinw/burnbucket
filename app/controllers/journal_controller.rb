@@ -36,8 +36,17 @@ class JournalController < ApplicationController
       user_bucket = @user.buckets.find params[:moment][:bucket]
 
       if user_bucket
-        params[:moment].delete :bucket
-        user_bucket.moments.create params[:moment]
+        #params[:moment].delete :bucket
+        #user_bucket.moments.create params[:moment]
+        params[:moment][:bucket] = user_bucket
+        newMoment = Moment.new params[:moment]
+        if newMoment.valid?
+          newMoment.save
+          redirect '/journal'
+        else
+          flash[:messages] = newMoment.errors.messages
+          redirect '/journal'
+        end
       else
         flash[:message] = "You don't have permission to edit this bucket"
       end

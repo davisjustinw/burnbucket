@@ -2,14 +2,6 @@
 
 <main id="form_content">
 <h2>Add Bucket</h2>
-<% if flash.has?(:messages) %>
-<ul>
-  <% flash[:messages].each do |message| %>
-    <li><%= message.first %> - <%= message.flatten.last %></li>
-  <% end %>
-</ul>
-
-<% end %>
 
 <form action="/buckets" method="post">
   <input type="text" name="bucket[name]" placeholder="name">

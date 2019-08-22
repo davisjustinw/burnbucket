@@ -1,7 +1,7 @@
 class BucketList < ActiveRecord::Base
 
   validates :name, presence: true
-
+  
   belongs_to :user
 
   has_many :buckets
@@ -36,7 +36,7 @@ class BucketList < ActiveRecord::Base
         min[:ratio] = max[:value] == 0 ? min[:value] : (min[:value] + 0.0) / max[:value]
 
         ratio_hash = {max: max, min: min}
-        
+
       end
     end
 

@@ -31,6 +31,13 @@
           <% if flash.has?(:message) %>
             <%= flash[:message]%>
           <% end %>
+          <% if flash.has?(:messages) %>
+          <ul>
+            <% flash[:messages].each do |message| %>
+              <li><%= message.first %> - <%= message.flatten.last %></li>
+            <% end %>
+          </ul>
+          <%end%>
         </div>
         <% if Helpers.is_logged_in? session %>
         <div id="logout">
