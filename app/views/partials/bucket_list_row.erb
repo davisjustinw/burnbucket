@@ -4,8 +4,10 @@
   </div>
 <div class="bucket_list_subtitle">
   <% ratio = bucket_list.ratio %>
-  <% if ratio %>
+  <% if ratio && ratio[:max][:value] != 0 && ratio[:min][:value] != 0%>
   <%= ratio[:max][:ratio].round(2) %> <%= ratio[:max][:name].pluralize(ratio[:max][:ratio]) %> per <%= ratio[:min][:name] %>
+  <% elsif ratio && ratio[:max][:value] != 0 %>
+    <%= ratio[:max][:value] %> <%= ratio[:max][:name].pluralize(ratio[:max][:value]) %>
   <% elsif !bucket_list.buckets.empty? %>
     <%= bucket_list.sum %> <%= bucket_list.buckets.first.unit.name.pluralize(bucket_list.sum) %>
   <% else %>

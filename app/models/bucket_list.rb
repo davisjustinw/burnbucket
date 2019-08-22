@@ -30,11 +30,13 @@ class BucketList < ActiveRecord::Base
 
       #more than one sum?
       if max != min
+
         #calculate ratio for each
         max[:ratio] = min[:value] == 0 ? max[:value] : (max[:value] + 0.0) / min[:value]
         min[:ratio] = max[:value] == 0 ? min[:value] : (min[:value] + 0.0) / max[:value]
-        ratio_hash = {max: max, min: min}
 
+        ratio_hash = {max: max, min: min}
+        
       end
     end
 
