@@ -156,6 +156,7 @@
 - password input change
 - login redirects to proper routes
 - double database hit find vs find_by find_by returns nil
+- new changes like fin find by
 
 # Backlog
 

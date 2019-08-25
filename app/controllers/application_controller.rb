@@ -11,7 +11,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    @users = User.all
     if Helpers.is_logged_in?(session)
       redirect '/journal'
     else
@@ -20,8 +19,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-
-    params.delete :submit
     @user = User.new(params)
     if @user.valid?
       @user.save
@@ -34,7 +31,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
-    @users = User.all
     if Helpers.is_logged_in?(session)
       redirect '/journal'
     else
