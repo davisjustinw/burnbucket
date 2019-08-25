@@ -3,10 +3,10 @@ class MomentController < ApplicationController
   get '/moments/:id/edit' do
 
     redirect_if_not_logged_in
-    @user = User.find(session[:user_id])
+    @user = User.find session[:user_id]
+    @moment = @user.moments.find_by_id params[:id]
 
-    if @user.moments.exists?(params[:id])
-      @moment = Moment.find(params[:id])
+    if @moment
       @buckets = @user.buckets
       erb :'moments/edit_moment'
     else
@@ -19,18 +19,14 @@ class MomentController < ApplicationController
   patch '/moments/:id' do
 
     redirect_if_not_logged_in
+    @user = User.find session[:user_id]
+    @moment = @user.moments.find_by_id params[:id]
+    @bucket = @user.buckets.find_by_id params[:moment][:bucket]
 
-    @user = User.find(session[:user_id])
-    if @user.moments.exists?(params[:id]) && @user.buckets.exists?(params[:moment][:bucket])
-      @moment = Moment.find(params[:id])
-
-      params[:moment][:bucket] = Bucket.find(params[:moment][:bucket])
+    if @moment && @bucket
+      params[:moment][:bucket] = @bucket
       params[:moment][:timestamp] = Time.now
-
-
-        @moment.update(params[:moment])
-
-
+      @moment.update params[:moment]
     else
       flash[:message] = "You do not have permission to edit this moment or bucket, or they don't exist"
     end
@@ -40,10 +36,10 @@ class MomentController < ApplicationController
 
   delete '/moments/:id' do
     redirect_if_not_logged_in
+    @user = User.find session[:user_id]
+    @moment = @user.moments.find_by_id params[:id]
 
-    @user = User.find(session[:user_id])
-    if @user.moments.exists?(params[:id])
-      @moment = Moment.find(params[:id])
+    if @moment
       @moment.destroy
       redirect '/journal'
     else
