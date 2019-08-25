@@ -13,6 +13,7 @@ class BucketController < ApplicationController
     redirect_if_not_logged_in
 
     @user = User.find(session[:user_id])
+
     #singularize used to normalize units so views can use plural and singular forms
     params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit].singularize
     @bucket = @user.buckets.build(params[:bucket])
@@ -29,13 +30,11 @@ class BucketController < ApplicationController
   get '/buckets/:id/edit' do
     redirect_if_not_logged_in
 
-    @user = User.find(session[:user_id])
-
+    @user = User.find session[:user_id]
     #does user have permission to edit the bucket?
     @bucket = @user.buckets.find_by_id params[:id]
 
     if @bucket
-
       erb :'buckets/edit_bucket'
     else
       flash[:message] = "You do not have permission to edit this bucket or it does not exist"
@@ -46,12 +45,11 @@ class BucketController < ApplicationController
 
   patch '/buckets/:id' do
     redirect_if_not_logged_in
-    @user = User.find(session[:user_id])
+    @user = User.find session[:user_id]
+    @bucket = @user.buckets.find_by_id params[:id]
 
     #does user have permission?
-    if @user.buckets.exists?(params[:id])
-      @bucket = Bucket.find(params[:id])
-
+    if @bucket
       #did the user add a unit?
       if !params[:bucket][:unit].empty?
         params[:bucket][:unit] = Unit.find_or_create_by(name: params[:bucket][:unit].singularize)
@@ -73,10 +71,10 @@ class BucketController < ApplicationController
   delete '/buckets/:id' do
     redirect_if_not_logged_in
     @user = User.find(session[:user_id])
+    @bucket = @user.buckets.find_by_id params[:id]
 
     #does the user have permission
-    if @user.buckets.exists?(params[:id])
-      @bucket = Bucket.find(params[:id])
+    if @bucket
       @bucket.destroy
       redirect '/journal'
     else
