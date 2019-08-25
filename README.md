@@ -10,11 +10,6 @@ Budget, burn, track.  Burnbucket an abstract budgeting tool allows users to name
 - Treat yourself as a business
 - What's your value.
 
-## Brainstorm
-- Allow automatic time stamps
-- CLI centric?
-
-
 ## Use Cases
 
 - I have dollar budgets I don't want to exceed
