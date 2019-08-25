@@ -1,62 +1,53 @@
 class JournalController < ApplicationController
 
   get '/journal' do
-    if Helpers.is_logged_in? session
+    redirect_if_not_logged_in
+    if User.exists? session[:user_id]
+      @user = User.find session[:user_id]
 
-      if User.exists? session[:user_id]
-        @user = User.find session[:user_id]
+      # grab user's bucket lists.  Had to use select to make it sortable
+      @bucket_lists = @user.bucket_lists.select{|bl| true}
+      @bucket_lists.sort_by!{|bucket_list| bucket_list[:name].downcase}
 
-        # grab user's bucket lists.  Had to use select to make it sortable
-        @bucket_lists = @user.bucket_lists.select{|bl| true}
-        @bucket_lists.sort_by!{|bucket_list| bucket_list[:name].downcase}
+      # grab user's buckets.  Had to use select to make it sortable
+      @buckets = @user.buckets
+      @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
+      @free_buckets.sort_by!{|bucket| bucket[:name].downcase}
 
-        # grab user's buckets.  Had to use select to make it sortable
-        @buckets = @user.buckets
-        @free_buckets = @buckets.select {|bucket| !bucket.bucket_list}
-        @free_buckets.sort_by!{|bucket| bucket[:name].downcase}
+      @moments = @user.moments
 
-        @moments = @user.moments
-
-        erb :'buckets/journal'
-      else
-        redirect '/logout'
-      end
+      erb :'buckets/journal'
     else
-      redirect '/login'
+      redirect '/logout'
     end
-  end
+
+  end #end get journal
 
 
   post '/journal' do
 
-    if Helpers.is_logged_in?(session)
-      @user = User.find(session[:user_id])
+    redirect_if_not_logged_in
+    @user = User.find(session[:user_id])
 
-      params[:moment][:timestamp] = Time.now
-      user_bucket = @user.buckets.find params[:moment][:bucket]
+    params[:moment][:timestamp] = Time.now
+    user_bucket = @user.buckets.find params[:moment][:bucket]
 
-      if user_bucket
-        #params[:moment].delete :bucket
-        #user_bucket.moments.create params[:moment]
-        params[:moment][:bucket] = user_bucket
-        newMoment = Moment.new params[:moment]
-        if newMoment.valid?
-          newMoment.save
-          redirect '/journal'
-        else
-          flash[:messages] = newMoment.errors.messages
-          redirect '/journal'
-        end
+    if user_bucket
+      #params[:moment].delete :bucket
+      #user_bucket.moments.create params[:moment]
+      params[:moment][:bucket] = user_bucket
+      newMoment = Moment.new params[:moment]
+      if newMoment.valid?
+        newMoment.save
+        redirect '/journal'
       else
-        flash[:message] = "You don't have permission to edit this bucket"
+        flash[:messages] = newMoment.errors.messages
+        redirect '/journal'
       end
-
-      redirect '/journal'
-
     else
-      redirect '/login'
+      flash[:message] = "You don't have permission to edit this bucket"
     end
 
-
-  end
+    redirect '/journal'
+  end #post journal
 end
