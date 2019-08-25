@@ -22,14 +22,12 @@ class BucketListController < ApplicationController
   get '/bucket_lists/:id/edit' do
       redirect_if_not_logged_in
       @user = User.find(session[:user_id])
+      @bucket_list = @user.bucket_lists.find_by_id params[:id]
 
       #does user have permission?
-      if @user.bucket_lists.exists?(params[:id])
-
-      @buckets = @user.buckets
-      @bucket_list = BucketList.find params[:id]
-
-      erb :'bucket_lists/edit_bucket_list'
+      if @bucket_list
+        @buckets = @user.buckets
+        erb :'bucket_lists/edit_bucket_list'
       else
         flash[:message] = "You do not have permission to edit this bucketlist or it does not exist"
         redirect '/journal'
@@ -40,12 +38,12 @@ class BucketListController < ApplicationController
 
     redirect_if_not_logged_in
     @user = User.find(session[:user_id])
+    @bucket_list = @user.bucket_lists.find_by_id params[:id]
 
     #does user have permission?
-    if @user.bucket_lists.exists?(params[:id])
-      @bucket_list = BucketList.find(params[:id])
-      @buckets = Bucket.find(params[:buckets])
+    if @bucket_list
 
+      @buckets = Bucket.find(params[:buckets])
       #validation to only allow two unit types
       if @buckets.uniq {|bucket| bucket.unit_id}.count > 2
         flash[:message] = "only two unit types aloud"
@@ -63,12 +61,11 @@ class BucketListController < ApplicationController
 
   delete '/bucket_lists/:id' do
     redirect_if_not_logged_in
-
     @user = User.find(session[:user_id])
+    @bucket_list = @user.bucket_lists.find_by_is params[:id]
 
     #does user have permission?
-    if @user.bucket_lists.exists?(params[:id])
-      @bucket_list = BucketList.find(params[:id])
+    if @bucket_list
       @bucket_list.destroy
       redirect '/journal'
     else
