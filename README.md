@@ -17,12 +17,12 @@ Budget, burn, track.  Burnbucket an abstract budgeting tool allows users to name
 
 ## Use Cases
 
-I have dollar budgets I don't want to exceed
-I have a set hours to accomplish something
-I want to now how much I'm making per hour spent
-I want to know hour many steps I took per hour
-I want to know how many miles I ran per hour
-I have dollar goals I want to beat
-I I want to do x exercises per hour, day etc
-I don't want to eat more that x things
-I want to spend x time on something
+- I have dollar budgets I don't want to exceed
+- I have a set hours to accomplish something
+- I want to now how much I'm making per hour spent
+- I want to know hour many steps I took per hour
+- I want to know how many miles I ran per hour
+- I have dollar goals I want to beat
+- I want to do x exercises per hour, day etc
+- I don't want to eat more than x things
+- I want to spend x time on something

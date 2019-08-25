@@ -41,7 +41,7 @@ The parent model.  Represents one of many "budgets" a user can track.
 - name
 - start_time
 - end_time
-- pool 
+- pool
 
 ### Associations
 has_many entries

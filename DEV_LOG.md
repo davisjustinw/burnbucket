@@ -146,12 +146,11 @@
 
 
 - validation sweep
-
 - comment and clean
 
 - timestamp journal entries
-- counter page
 
+## Aug 25
 - redirect if not logged in
 - password input change
 - login redirects to proper routes
@@ -160,7 +159,7 @@
 
 # Backlog
 
-- many to many for bucket and bucketlist
+
 
 # Blog
 - code like you'll return
