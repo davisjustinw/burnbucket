@@ -20,18 +20,19 @@ class BucketListController < ApplicationController
   end #end post bucket_lists
 
   get '/bucket_lists/:id/edit' do
-      redirect_if_not_logged_in
-      @user = User.find(session[:user_id])
-      @bucket_list = @user.bucket_lists.find_by_id params[:id]
 
-      #does user have permission?
-      if @bucket_list
-        @buckets = @user.buckets
-        erb :'bucket_lists/edit_bucket_list'
-      else
-        flash[:message] = "You do not have permission to edit this bucketlist or it does not exist"
-        redirect '/journal'
-      end
+    redirect_if_not_logged_in
+    @user = User.find(session[:user_id])
+    @bucket_list = @user.bucket_lists.find_by_id params[:id]
+
+    #does user have permission?
+    if @bucket_list
+      @buckets = @user.buckets
+      erb :'bucket_lists/edit_bucket_list'
+    else
+      flash[:message] = "You do not have permission to edit this bucketlist or it does not exist"
+      redirect '/journal'
+    end
   end #end get bucket_list
 
   patch '/bucket_lists/:id' do
