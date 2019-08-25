@@ -2,36 +2,33 @@
 class BucketController < ApplicationController
   use Rack::Flash
 
+
+
   get '/buckets/new' do
-    if Helpers.is_logged_in?(session)
+    redirect_if_not_logged_in
 
       @user = User.find(session[:user_id])
       @bucket = Bucket.new(name: "new")
       erb :'buckets/new_bucket'
-    else
-      redirect '/login'
-    end
+
   end
 
   post '/buckets' do
-    if Helpers.is_logged_in?(session)
+    redirect_if_not_logged_in
 
       @user = User.find(session[:user_id])
       #singularize used to normalize units so views can use plural and singular forms
       params[:bucket][:unit] = Unit.find_or_create_by name: params[:bucket][:unit].singularize
-      @bucket = Bucket.new(params[:bucket])
+      @bucket = @user.buckets.build(params[:bucket])
 
       #use model's validations
-      if @bucket.valid?
-        @user.buckets << @bucket
+      if @bucket.save
         redirect '/journal'
       else
         flash[:messages] = @bucket.errors.messages
         redirect '/buckets/new'
       end
-    else
-      redirect '/login'
-    end
+
   end
 
   get '/buckets/:id/edit' do
@@ -39,12 +36,14 @@ class BucketController < ApplicationController
       @user = User.find(session[:user_id])
 
       #does user have permission to edit the bucket?
-      if @user.buckets.exists? params[:id]
-        @bucket = @user.buckets.find params[:id]
+      @bucket = @user.buckets.find_by_id params[:id]
+
+      if @bucket
+
         erb :'buckets/edit_bucket'
       else
         flash[:message] = "You do not have permission to edit this bucket or it does not exist"
-        redirect '/buckets'
+        redirect '/journal'
       end
     else
       redirect '/login'

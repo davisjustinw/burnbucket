@@ -152,6 +152,10 @@
 - timestamp journal entries
 - counter page
 
+- redirect if not logged in
+- password input change
+- login redirects to proper routes
+- double database hit
 
 # Backlog
 

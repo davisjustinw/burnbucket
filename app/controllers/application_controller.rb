@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
       redirect '/journal'
     else
       flash[:messages] = @user.errors.messages
-      redirect '/signup'
+      redirect '/'
     end
   end
 
@@ -56,6 +56,12 @@ class ApplicationController < Sinatra::Base
   get '/logout' do
     session.clear
     redirect '/login'
+  end
+
+  helpers do
+    def redirect_if_not_logged_in
+      redirect '/login' if !Helpers.is_logged_in?(session)
+    end
   end
 
 end
