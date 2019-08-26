@@ -89,7 +89,10 @@
   .bucket_list_title {
     font-weight: bold;
     font-size: 125%;
+  }
 
+  .bucket_list_title a{
+    padding-left: 0px;
   }
 
   .bucket_list_subtitle {
@@ -97,6 +100,3 @@
     color: slategray;
     border-bottom: 2px solid slategray;
   }
-
-
-  

@@ -63,7 +63,7 @@ class BucketListController < ApplicationController
   delete '/bucket_lists/:id' do
     redirect_if_not_logged_in
     @user = User.find(session[:user_id])
-    @bucket_list = @user.bucket_lists.find_by_is params[:id]
+    @bucket_list = @user.bucket_lists.find_by_id params[:id]
 
     #does user have permission?
     if @bucket_list
